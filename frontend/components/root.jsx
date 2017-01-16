@@ -8,6 +8,8 @@ import ProductIndex from './products/index.jsx';
 import Show from './products/show/show.jsx';
 import MinorIndex from './products/minor_index/minor_index.jsx';
 import ColorChart from './colorchart/colorchart.jsx';
+// import ControlPanel from './admin/controlpanel.jsx';
+// <Router path="cpanel" component={ControlPanel} onEnter={resetScreen}/>
 
 const Root = ({store}) => {
   function resetScreen(){
