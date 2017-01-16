@@ -47,13 +47,19 @@ class AddColor extends React.Component {
     if(e){ e.preventDefault(); }
     $("#submit").prop("disabled",true).toggleClass("disabled");
 
-    let output = this.state;
     const { name, color_type, imgFile } = this.state;
-    output = new FormData();
+    const output = new FormData();
     output.append("color[name]", name);
-    output.append("color[color_type]", color_type);
+    output.append("color[color_type]", color_type.toLowerCase());
     output.append("color[img]", imgFile);
     this.props.addColor(output);
+    this.props.router.push({pathname: "/login"});
+    this.setState({
+      color_type: "",
+      name: "",
+      imgFile: "",
+      imgURL: window.imgAssets.defaultColor
+    });
   }
 
   render(){
@@ -63,14 +69,14 @@ class AddColor extends React.Component {
       <form className="add-color-form" onSubmit={this.handleSubmit}>
         <input
           type="text"
-          value={this.state.color_type}
+          value={this.state.color_type.toLowerCase()}
           onChange={this.update('color_type')}
-          placeholder="What kind of color is it? (Basic, Mix)"/>
+          placeholder="What kind of color is it? (Solid, Frost...)"/>
         <input
           type="text"
           value={this.state.name}
           onChange={this.update('name')}
-          placeholder="What is the name of the color? (1, 1b)"/>
+          placeholder="What is the name of the color? (1, 1b...)"/>
         <div className="img-input-container">
           <div id="dropImg">
             <input type="file" className="drop_file"  id="img" onChange={this.updateImg}></input>

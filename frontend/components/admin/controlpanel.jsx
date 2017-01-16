@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router';
 import AddColor from './controls/add_color_container';
+import UpdateColor from './controls/update_color_container';
 
 class CPanel extends React.Component {
   constructor(props){
@@ -33,6 +34,8 @@ class CPanel extends React.Component {
         return (<h1>Method to remove product</h1>);
       case "addcolor":
         return (<AddColor/>);
+      case "updatecolor":
+        return (<UpdateColor/>);
       case "removecolor":
         return (<h1>Gotta remove colors too</h1>);
     }
@@ -57,6 +60,7 @@ class CPanel extends React.Component {
                 <li><a onClick={this.handleChange("addproduct")}>Add Product</a></li>
                 <li><a onClick={this.handleChange("removeproduct")}>Remove Product</a></li>
                 <li><a onClick={this.handleChange("addcolor")}>Add Color</a></li>
+                <li><a onClick={this.handleChange("updatecolor")}>Update Color</a></li>
                 <li><a onClick={this.handleChange("removecolor")}>Remove Color</a></li>
               </ul>
             </div>

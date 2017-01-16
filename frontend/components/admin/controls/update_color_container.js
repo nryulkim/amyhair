@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { updateColor } from '../../../actions/color_actions';
-import UpdateColor from './add_color';
+import UpdateColor from './update_color';
 
 const mapStateToProps = ({ colors }, ownProps) => {
   return({

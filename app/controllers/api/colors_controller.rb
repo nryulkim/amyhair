@@ -7,10 +7,8 @@ class Api::ColorsController < ApplicationController
   def create
     @color = Color.new(color_params)
     if @color.save
-      debugger
       render :create
     else
-      debugger
       @errors = @color.errors.full_messages
       render json: @errors, status: 422
     end

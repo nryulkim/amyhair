@@ -23,7 +23,7 @@ export const newColor = (color, success, error) => {
 export const updateColor = (color, success, error) => {
   $.ajax({
     method: "PATCH",
-    url: `/api/colors/${color.id}`,
+    url: `/api/colors/${color.get('color[id]')}`,
     data: color,
     dataType: "json",
     contentType: false,

@@ -1,20 +1,32 @@
 import * as ColorAPI from '../util/api/color_api';
 import {
-  ADD_COLOR, GET_ALL_COLORS,
-  receiveAllColors
+  ADD_COLOR, GET_ALL_COLORS, UPDATE_COLOR,
+  receiveAllColors, receiveColor
 } from '../actions/color_actions';
 
 export default ({ getState, dispatch }) => next => action => {
   let success = () => {
+    $("#submit").prop("disabled",false).toggleClass("disabled");
     window.alert("success");
   };
-  let errors = () => {
-    window.alert("error");
+  let errors = xhr => {
+    $("#submit").prop("disabled",false).toggleClass("disabled");
+    window.alert(xhr.responseJSON);
   };
 
   switch(action.type) {
     case ADD_COLOR:
+      success = (color) => {
+        dispatch(receiveColor(color));
+      }
       ColorAPI.newColor(action.color, success, errors);
+      return next(action);
+
+    case UPDATE_COLOR:
+      success = (color) => {
+        dispatch(receiveColor(color));
+      }
+      ColorAPI.updateColor(action.color, success, errors);
       return next(action);
 
     case GET_ALL_COLORS:
