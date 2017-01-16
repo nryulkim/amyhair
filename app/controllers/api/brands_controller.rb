@@ -1,4 +1,9 @@
 class Api::BrandsController < ApplicationController
+  def index
+    @brands = Brand.all;
+    render :index
+  end
+
   def create
     @brand = Brand.new(comment_params)
     if @brand.save
