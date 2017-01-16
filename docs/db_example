@@ -11,6 +11,7 @@ Brand
       id: int,
       brand_id: int,
       name: String,
+      bundle: bool,
       imgurl: string
     }
     hasmany Items
@@ -24,7 +25,7 @@ Brand
         props ={
           id: int,
           item_id: int,
-          length: int
+          length: text
         }
         hasmany Colors through ColorsJoins
           props ={

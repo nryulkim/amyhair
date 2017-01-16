@@ -2,9 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from './components/root';
-import * as ColorAPI from './util/api/color_api';
+import * as BrandAPI from './util/api/brand_api';
 
-window.ColorAPI = ColorAPI;
+window.BrandAPI = BrandAPI;
 
 document.addEventListener('DOMContentLoaded', () => {
     let initialState = {};

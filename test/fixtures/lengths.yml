@@ -4,7 +4,7 @@
 #
 #  id         :integer          not null, primary key
 #  item_id    :integer          not null
-#  length     :integer
+#  length     :text
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #

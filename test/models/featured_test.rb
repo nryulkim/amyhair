@@ -1,17 +1,16 @@
 # == Schema Information
 #
-# Table name: item_colors
+# Table name: featureds
 #
 #  id         :integer          not null, primary key
-#  length_id  :integer          not null
-#  color_id   :integer          not null
+#  brand_id   :integer          not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
 
 require 'test_helper'
 
-class ItemColorTest < ActiveSupport::TestCase
+class FeaturedTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
