@@ -4,6 +4,7 @@ import { Link, withRouter } from 'react-router';
 class Products extends React.Component{
   constructor(props){
     super(props);
+
   }
   componentDidMount(){
     $("#page-wrapper").addClass('products-page');
@@ -22,7 +23,7 @@ class Products extends React.Component{
       let name = brands[i].brand;
       let path = 'show/' + brands[i].id;
       if(products.length > 1){
-        path = 'index/' + brands[i].id;
+        path = 'idx/' + brands[i].id;
       }
       rslt.push(<li key={i}><Link to={path}>{name}</Link></li>);
     }

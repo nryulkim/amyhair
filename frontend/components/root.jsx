@@ -9,7 +9,7 @@ import Main from './main/main.jsx';
 import Contact from './contact/contact.jsx';
 import ProductIndex from './products/index_container.js';
 import Show from './products/show/show.jsx';
-import MinorIndex from './products/minor_index/minor_index.jsx';
+import MinorIndex from './products/minor_index/minor_index_container.js';
 import ColorChart from './colorchart/colorchart_container.js';
 import LogIn from './admin/login_container.js';
 import CPanel from './admin/controlpanel_container.js';
@@ -68,7 +68,7 @@ const Root = ({store}) => {
           <Router path="colorchart" component={ColorChart} onEnter={_getColors}/>
           <Router path="products" component={ProductIndex} onEnter={_getBrands}/>
           <Router path="show/:id" component={Show} onEnter={resetScreen}/>
-          <Router path="idx/:id" component={MinorIndex} onEnter={resetScreen}/>
+          <Router path="idx/:id" component={MinorIndex} onEnter={_getBrands}/>
           <Router path="login" history={hashHistory} component={LogIn} onLeave={_clearErrors} onEnter={_redirectIfLoggedIn}/>
           <Router path="cpanel" history={hashHistory} component={CPanel} onEnter={_controlPanel}/>
         </Route>
