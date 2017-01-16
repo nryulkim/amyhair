@@ -15,7 +15,7 @@
 
 class Color < ApplicationRecord
   validates :name, :color_type, presence: true
-  has_attached_file :img, default_url: "haircolors/default.jpg", url: "haircolors/:filename"
+  has_attached_file :img, default_url: "haircolors/default.jpg", url: "/images/haircolors/:filename"
   validates_attachment_content_type :img, content_type: /\Aimage\/.*\z/
 
 end

@@ -2,11 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from './components/root';
-import * as UserAPI from './util/api/user_api';
-import * as SessionAPI from './util/api/session_api';
+import * as ColorAPI from './util/api/color_api';
 
-window.UserAPI = UserAPI;
-window.SessionAPI = SessionAPI;
+window.ColorAPI = ColorAPI;
 
 document.addEventListener('DOMContentLoaded', () => {
     let initialState = {};

@@ -2,6 +2,7 @@ import React from 'react';
 import { Provider } from "react-redux";
 import { Redirect, Router, Route, IndexRoute, hashHistory } from 'react-router';
 import { clearErrors } from '../actions/util_actions';
+import { getAllColors } from '../actions/color_actions';
 import App from './app';
 import Main from './main/main.jsx';
 import Contact from './contact/contact.jsx';
@@ -32,10 +33,21 @@ const Root = ({store}) => {
     resetScreen();
   };
 
+  const _getColors = () => {
+    if(!store.getState().colors.colors){
+      store.dispatch(getAllColors());
+    }
+    resetScreen();
+  }
+
   const _clearErrors = () => {
     store.dispatch(clearErrors());
   };
 
+  const _controlPanel = () => {
+    _redirectIfNotLoggedIn();
+    _getColors();
+  }
 
   return (
     <Provider store={store}>
@@ -44,12 +56,12 @@ const Root = ({store}) => {
           <IndexRoute component={Main} />
           <Redirect from="about-us" to="/"/>
           <Redirect from="home" to="/"/>
-          <Router path="colorchart" component={ColorChart} onEnter={resetScreen}/>
+          <Router path="colorchart" component={ColorChart} onEnter={_getColors}/>
           <Router path="products" component={ProductIndex} onEnter={resetScreen}/>
           <Router path="show/:id" component={Show} onEnter={resetScreen}/>
           <Router path="idx/:id" component={MinorIndex} onEnter={resetScreen}/>
           <Router path="login" history={hashHistory} component={LogIn} onLeave={_clearErrors} onEnter={_redirectIfLoggedIn}/>
-          <Router path="cpanel" history={hashHistory} component={CPanel} onEnter={_redirectIfNotLoggedIn}/>
+          <Router path="cpanel" history={hashHistory} component={CPanel} onEnter={_controlPanel}/>
         </Route>
       </Router>
     </Provider>

@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, withRouter } from 'react-router';
 import { setDragAndDrop } from '../../../util/util_functions';
 
-class CPanel extends React.Component {
+class AddColor extends React.Component {
   constructor(props){
     super(props);
     this.state = {
@@ -88,4 +88,4 @@ class CPanel extends React.Component {
   }
 }
 
-export default withRouter(CPanel);
+export default withRouter(AddColor);
