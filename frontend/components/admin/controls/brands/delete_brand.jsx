@@ -101,7 +101,8 @@ class DeleteBrand extends React.Component {
       content = this.getForm();
     }
     return(
-      <div className="update-brand-container">
+      <div className="brand-container">
+        <h1>Delete Brand</h1>
         {content}
       </div>
     );

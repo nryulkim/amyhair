@@ -170,6 +170,7 @@ class UpdateColor extends React.Component {
     }
     return(
       <div className="update-color-container">
+        <h1>Update Color</h1>
         {content}
       </div>
     );

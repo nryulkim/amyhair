@@ -128,6 +128,7 @@ class DeleteColor extends React.Component {
     }
     return(
       <div className="update-color-container">
+        <h1>Delete Color</h1>
         {content}
       </div>
     );

@@ -66,30 +66,32 @@ class AddBrand extends React.Component {
     const { formType } = this.props;
 
     return(
-      <form className="add-form" onSubmit={this.handleSubmit}>
-        <input
-          type="text"
-          value={this.state.brand}
-          onChange={this.update('brand')}
-          placeholder="What is the brand name?"/>
-        <input
-          type="text"
-          value={this.state.description}
-          onChange={this.update('description')}
-          placeholder="Please add a description"/>
-        <div className="img-input-container">
-          <div id="dropImg">
-            <input type="file" className="drop_file"  id="img" onChange={this.updateImg}></input>
-            <label htmlFor="img">
-              <img className="brand-img img" src={this.state.imgURL}/>
-              <strong>Choose an image</strong> or drag it here.
-            </label>
-          </div>
+      <div>
+        <h1>Add Brand</h1>
+        <form className="add-form" onSubmit={this.handleSubmit}>
+          <input
+            type="text"
+            value={this.state.brand}
+            onChange={this.update('brand')}
+            placeholder="What is the brand name?"/>
+          <input
+            type="text"
+            value={this.state.description}
+            onChange={this.update('description')}
+            placeholder="Please add a description"/>
+          <div className="img-input-container">
+            <div id="dropImg">
+              <input type="file" className="drop_file"  id="img" onChange={this.updateImg}></input>
+              <label htmlFor="img">
+                <img className="brand-img img" src={this.state.imgURL}/>
+                <strong>Choose an image</strong> or drag it here.
+                </label>
+              </div>
 
-          <button id="submit" type="submit">Submit</button>
-        </div>
-
-      </form>
+              <button id="submit" type="submit">Submit</button>
+            </div>
+          </form>
+      </div>
     );
   }
 }

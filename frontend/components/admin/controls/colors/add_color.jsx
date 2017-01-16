@@ -66,33 +66,36 @@ class AddColor extends React.Component {
     const { formType } = this.props;
 
     return(
-      <form className="add-form" onSubmit={this.handleSubmit}>
-        <select value={this.state.color_type} onChange={this.update('color_type')}>
-          <option value="solid">Solid</option>
-          <option value="frost mix">Frost Mix</option>
-          <option value="two tone">Two Tone</option>
-          <option value="special f mix">Special F Mix</option>
-          <option value="three tone">Three Tone</option>
-          <option value="freya silky">Freya Silky</option>
-        </select>
-        <input
-          type="text"
-          value={this.state.name}
-          onChange={this.update('name')}
-          placeholder="What is the name of the color? (1, 1b...)"/>
-        <div className="img-input-container">
-          <div id="dropImg">
-            <input type="file" className="drop_file"  id="img" onChange={this.updateImg}></input>
-            <label htmlFor="img">
-              <img className="img" src={this.state.imgURL}/>
-              <strong>Choose an image</strong> or drag it here.
-            </label>
-          </div>
+      <div>
+        <h1>Add Color</h1>
+        <form className="add-form" onSubmit={this.handleSubmit}>
+          <select value={this.state.color_type} onChange={this.update('color_type')}>
+            <option value="solid">Solid</option>
+            <option value="frost mix">Frost Mix</option>
+            <option value="two tone">Two Tone</option>
+            <option value="special f mix">Special F Mix</option>
+            <option value="three tone">Three Tone</option>
+            <option value="freya silky">Freya Silky</option>
+          </select>
+          <input
+            type="text"
+            value={this.state.name}
+            onChange={this.update('name')}
+            placeholder="What is the name of the color? (1, 1b...)"/>
+          <div className="img-input-container">
+            <div id="dropImg">
+              <input type="file" className="drop_file"  id="img" onChange={this.updateImg}></input>
+              <label htmlFor="img">
+                <img className="img" src={this.state.imgURL}/>
+                <strong>Choose an image</strong> or drag it here.
+                </label>
+              </div>
 
-          <button id="submit" type="submit">Submit</button>
-        </div>
+              <button id="submit" type="submit">Submit</button>
+            </div>
 
-      </form>
+          </form>
+      </div>
     );
   }
 }
