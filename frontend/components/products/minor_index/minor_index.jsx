@@ -15,10 +15,14 @@ class MinorIndex extends React.Component{
     this.getProducts = this.getProducts.bind(this);
   }
 
-  setBrand(){
-    if(!this.props.brands){ return null; }
-    let idx = findObject(this.props.brands, parseInt(this.props.location.pathname.split("/")[1]));
-    let brand = this.props.brands[idx];
+  setBrand(props){
+    if(!props){
+      props = this.props;
+    }
+    if(!props.brands){ return null; }
+    const idx = findObject(props.brands, parseInt(props.location.pathname.split("/")[2]));
+    const brand = props.brands[idx];
+    if(!brand){ return null; }
     this.setState({
       name: brand.brand,
       description: brand.description,
@@ -42,8 +46,8 @@ class MinorIndex extends React.Component{
     });
   }
 
-  componentWillReceiveProps(){
-    this.setBrand();
+  componentWillReceiveProps(nextProps){
+    this.setBrand(nextProps);
   }
 
   getProducts(){
@@ -51,7 +55,7 @@ class MinorIndex extends React.Component{
     const rslt = [];
     for (let i = 0; i < products.length; i++) {
       const prod = products[i];
-      const path = "show/" + prod.id;
+      const path = "prod/" + prod.id;
       rslt.push(
         <Link className="pic" to={path} key={i}>
           <div className="temp img"/>

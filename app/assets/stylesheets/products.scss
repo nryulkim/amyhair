@@ -6,7 +6,7 @@
   padding: 5px 10px;
   color: #555;
   justify-content: center;
-  
+
   .container{
     background-color: #f5f5f5;
     box-shadow: 1px 1px 3px #a0a0a0;
@@ -41,7 +41,8 @@
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    width: 880px;
+    justify-content: center;
+    width: 70%;
     margin: 0 auto;
 
   }
