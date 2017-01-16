@@ -11,7 +11,7 @@ class Header  extends React.Component{
     return (
       <header id="header" className="alt">
         <h1><Link to="index.html">
-          <img src="./images/logo.png" alt=""></img>
+          <img src={window.imgAssets.logo} alt=""></img>
         </Link></h1>
         <nav id="nav">
           <ul>

@@ -1,0 +1,46 @@
+#main > header.colorchart{
+  background-color: #B3C6C7;
+  background-image: -moz-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), image-url("color_banner.jpg");
+  background-image: -webkit-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), image-url("color_banner.jpg");
+  background-image: -ms-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), image-url("color_banner.jpg");
+  background-image: linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), image-url("color_banner.jpg");
+  background-attachment: fixed;
+  background-position: right center;
+  background-repeat: no-repeat;
+  text-align: center;
+}
+
+body.landing #page-wrapper.colorchart-page{
+  background-color: #B3C6C7;
+  background-image: -moz-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), image-url("color_banner.jpg");
+  background-image: -webkit-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), image-url("color_banner.jpg");
+  background-image: -ms-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), image-url("color_banner.jpg");
+  background-image: linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), image-url("color_banner.jpg");
+  background-attachment: fixed;
+  background-position: right center;
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+  padding-top: 0;
+}
+
+.colorchart-content{
+  background-color: #F9f9f9;
+  color: #222;
+  padding: 15px 30px;
+}
+
+  .colorchart-content h3{
+    margin: 0 0 0 20px;
+  }
+
+  .colorchart-content hr{
+    margin: 0 0 10px;
+    border-bottom: solid 2px #aaa;
+  }
+
+.color-box{
+  width: 80%;
+  background-color: #f4f4f4;
+  box-shadow: 0 0 3px #aaa;
+  margin: 10px auto;
+}
