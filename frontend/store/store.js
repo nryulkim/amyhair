@@ -4,6 +4,14 @@ import RootMiddleware from '../middleware/root_middleware.js';
 import merge from 'lodash/merge';
 
 const _default = {
+  session: {
+    currentUser: null,
+    forms: {
+      logIn:{
+        errors: []
+      }
+    }
+  }
 }
 
 export default (state = {}) => {

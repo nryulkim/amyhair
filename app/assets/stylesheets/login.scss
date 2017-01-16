@@ -1,0 +1,37 @@
+#main > header.small-header{
+  height: 200px;
+  padding-top: 75px;
+}
+
+.login-form {
+  background: #f9f9f9;
+  width: 70%;
+  box-shadow: 0 0 15px #000;
+  margin: 20px auto;
+  padding: 15px;
+
+  .errors{
+    list-style: none;
+    text-align: center;
+    color: red;
+    margin: 0;
+  }
+  .session-form{
+    form{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+    }
+    input{
+      width: 80%;
+      margin: 15px auto;
+      color: #000;
+    }
+
+    #submit{
+      margin: 25px auto;
+      background: #aaa;
+    }
+  }
+}

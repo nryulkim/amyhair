@@ -14,6 +14,6 @@ document.addEventListener('DOMContentLoaded', () => {
       initialState = {session:{currentUser: window.currentUser}};
     }
     const root = document.getElementById('root');
-    const store = configureStore({});
+    const store = configureStore(initialState);
     ReactDOM.render(<Root store={store}></Root>, root);
 });
