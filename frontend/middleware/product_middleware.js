@@ -19,7 +19,6 @@ export default ({ getState, dispatch }) => next => action => {
       success = (brands) => {
         dispatch(receiveProduct(brands));
       }
-      debugger
       ProductAPI.getProduct(action.id, success, errors);
       return next(action);
 

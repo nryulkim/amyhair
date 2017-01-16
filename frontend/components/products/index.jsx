@@ -83,18 +83,6 @@ class Products extends React.Component{
                   <p>Description</p>
                 </div>
               </Link>
-              <Link className="pic" to='show/7'>
-                <div className="temp img"/>
-                <div className="caption">
-                  <p>Description</p>
-                </div>
-              </Link>
-              <Link className="pic" to='show/8'>
-                <div className="temp img"/>
-                <div className="caption">
-                  <p>Description</p>
-                </div>
-              </Link>
             </div>
           </div>
         </section>
