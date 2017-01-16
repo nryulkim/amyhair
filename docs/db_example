@@ -1,0 +1,41 @@
+
+Brand
+  props = {
+    id: int,
+    brand: String,
+    description: varchar,
+    imgurl: string
+  }
+  hasmany Items
+    props = {
+      id: int,
+      brand_id: int,
+      name: String,
+      imgurl: string
+    }
+    hasmany Lengths
+      props ={
+        id: int,
+        item_id: int,
+        length: int
+      }
+      hasmany Colors through ColorsJoins
+        props ={
+          length_id: int,
+          color_id: int
+        }
+        hasmany Colors
+
+Colors
+  props{
+    id: int,
+    name: str,
+    imgurl: str
+  }
+
+Featured
+  props{
+    id: int,
+    item_id: int
+  }
+  has_many Items

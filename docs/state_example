@@ -1,0 +1,27 @@
+
+{
+  session: {
+    currentUser: {
+      id,
+      username
+    }
+  }
+  featured: {
+    items: [
+      {
+        name,
+        description,
+        imageUrl
+      }
+    ]
+  }
+  products: {
+    brand: {
+      id,
+      name,
+      description,
+      imgurl
+    }
+    currentItem: int
+  }
+}
