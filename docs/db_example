@@ -6,25 +6,32 @@ Brand
     description: varchar,
     imgurl: string
   }
-  hasmany Items
+  hasmany Products
     props = {
       id: int,
       brand_id: int,
       name: String,
       imgurl: string
     }
-    hasmany Lengths
-      props ={
+    hasmany Items
+      props = {
         id: int,
-        item_id: int,
-        length: int
+        product_id: int,
+        name: String,
+        imgurl: string
       }
-      hasmany Colors through ColorsJoins
+      hasmany Lengths
         props ={
-          length_id: int,
-          color_id: int
+          id: int,
+          item_id: int,
+          length: int
         }
-        hasmany Colors
+        hasmany Colors through ColorsJoins
+          props ={
+            length_id: int,
+            color_id: int
+          }
+          hasmany Colors
 
 Colors
   props{

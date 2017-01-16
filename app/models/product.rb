@@ -1,9 +1,10 @@
 # == Schema Information
 #
-# Table name: brands
+# Table name: products
 #
 #  id               :integer          not null, primary key
-#  brand            :string           not null
+#  name             :string           not null
+#  brand_id         :integer
 #  description      :text
 #  img_file_name    :string
 #  img_content_type :string
@@ -13,11 +14,11 @@
 #  updated_at       :datetime         not null
 #
 
-class Brand < ApplicationRecord
-  validates :brand, presence: true
-  has_attached_file :img, default_url: "backgrounds/back1.jpg", url: ":rails_root/app/assets/images/brands/:filename"
+class Product < ApplicationRecord
+  validates :name, presence: true
+  has_attached_file :img, url: ":rails_root/app/assets/images/products/:filename"
   validates_attachment_content_type :img, content_type: /\Aimage\/.*\z/
 
-  has_many :products
-  has_many :items, through: :products
+  belongs_to :brand
+  has_many :items
 end

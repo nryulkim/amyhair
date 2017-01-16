@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161230175210) do
+ActiveRecord::Schema.define(version: 20170104203009) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,44 @@ ActiveRecord::Schema.define(version: 20161230175210) do
   create_table "colors", force: :cascade do |t|
     t.string   "color_type",       null: false
     t.string   "name",             null: false
+    t.string   "img_file_name"
+    t.string   "img_content_type"
+    t.integer  "img_file_size"
+    t.datetime "img_updated_at"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  create_table "item_colors", force: :cascade do |t|
+    t.integer  "item_id",    null: false
+    t.integer  "color_id",   null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "items", force: :cascade do |t|
+    t.string   "name",             null: false
+    t.integer  "product_id"
+    t.text     "description"
+    t.string   "img_file_name"
+    t.string   "img_content_type"
+    t.integer  "img_file_size"
+    t.datetime "img_updated_at"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  create_table "lengths", force: :cascade do |t|
+    t.integer  "item_id",    null: false
+    t.integer  "length"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "products", force: :cascade do |t|
+    t.string   "name",             null: false
+    t.integer  "brand_id"
+    t.text     "description"
     t.string   "img_file_name"
     t.string   "img_content_type"
     t.integer  "img_file_size"
