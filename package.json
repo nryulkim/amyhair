@@ -10,7 +10,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "webpack": "./node_modules/.bin/webpack",
     "w-w": "./node_modules/.bin/webpack -w",
-    "heroku-postbuild": "webpack --config webpack.config.prod.js"
+    "heroku-postbuild": "webpack --config webpack.config.prod.js",
+    "postinstall": "./node_modules/.bin/webpack"
   },
   "repository": {
     "type": "git",
@@ -36,5 +37,9 @@
     "react-router": "^3.0.0",
     "redux": "^3.6.0",
     "webpack": "^1.14.0"
+  },
+  "engines": {
+    "node": "4.1.1",
+    "npm": "2.1.x"
   }
 }

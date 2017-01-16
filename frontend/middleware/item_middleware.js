@@ -1,6 +1,6 @@
 import * as ItemAPI from '../util/api/item_api';
 import {
-  GET_ITEM, NEW_ITEM, GET_ITEMS,
+  GET_ITEM, NEW_ITEM, GET_ITEMS, UPDATE_ITEM,
   receiveItem, receiveNewItem, receiveItems
 } from '../actions/item_actions';
 
@@ -23,10 +23,17 @@ export default ({ getState, dispatch }) => next => action => {
       return next(action);
 
     case GET_ITEM:
-      success = (brands) => {
-        dispatch(receiveItem(brands));
+      success = (item) => {
+        dispatch(receiveItem(item));
       }
       ItemAPI.getItem(action.id, success, errors);
+      return next(action);
+
+    case UPDATE_ITEM:
+      success = (item) => {
+        dispatch(receiveNewItem(item));
+      }
+      ItemAPI.updateItem(action.item, success, errors);
       return next(action);
 
     case NEW_ITEM:

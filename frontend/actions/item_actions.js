@@ -1,5 +1,6 @@
 export const GET_ITEM = "GET_ITEM";
 export const GET_ITEMS = "GET_ITEMS";
+export const UPDATE_ITEM = "UPDATE_ITEM";
 export const RECEIVE_NEW_ITEM = "RECEIVE_NEW_ITEM";
 export const RECEIVE_ITEM = "RECEIVE_ITEM";
 export const RECEIVE_ITEMS = "RECEIVE_ITEMS";
@@ -15,6 +16,13 @@ export function getItem(id){
 export function getItems(){
   return({
     type: GET_ITEMS
+  });
+};
+
+export function updateItem(item){
+  return({
+    type: UPDATE_ITEM,
+    item
   });
 };
 
