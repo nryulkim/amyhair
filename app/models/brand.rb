@@ -15,6 +15,6 @@
 
 class Brand < ApplicationRecord
   validates :brand, presence: true
-  has_attached_file :img, default_url: "backgrounds/back1.jpg"
+  has_attached_file :img, default_url: "backgrounds/back1.jpg", url: ":rails_root/app/assets/images/brands/:filename"
   validates_attachment_content_type :img, content_type: /\Aimage\/.*\z/
 end
