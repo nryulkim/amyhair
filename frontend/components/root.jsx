@@ -9,7 +9,7 @@ import Contact from './contact/contact.jsx';
 import ProductIndex from './products/index.jsx';
 import Show from './products/show/show.jsx';
 import MinorIndex from './products/minor_index/minor_index.jsx';
-import ColorChart from './colorchart/colorchart.jsx';
+import ColorChart from './colorchart/colorchart_container.js';
 import LogIn from './admin/login_container.js';
 import CPanel from './admin/controlpanel_container.js';
 

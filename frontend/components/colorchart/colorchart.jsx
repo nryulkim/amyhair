@@ -1,6 +1,5 @@
 import React from 'react';
 import ColorObj from '../color/color';
-import { COLORS } from '../../util/colors';
 import { Link } from 'react-router';
 
 
@@ -16,12 +15,15 @@ class ColorChart extends React.Component{
     $('#page-wrapper').removeClass('colorchart-page');
   }
 
-  getColors(colors){
+  getColors(color_type){
+    if(!this.props.colors){ return null; }
+    const colors = this.props.colors[color_type];
+
     const rslt = [];
     for (let i = 0; i < colors.length; i++) {
-      const imgPath = `./images/haircolors/${colors[i]}.jpg`;
+      const imgPath = colors[i].image_url;
       rslt.push(
-        <ColorObj key={i} color={colors[i]}/>
+        <ColorObj key={i} color={colors[i].name} img={imgPath}/>
       )
     }
     return rslt;
@@ -56,7 +58,7 @@ class ColorChart extends React.Component{
             </div>
             <hr className='light'/>
             <div id="colors1" className='color-container hidden'>
-              {this.getColors(COLORS.solid)}
+              {this.getColors("solid")}
             </div>
 
             <div className="banner" onClick={this.hideColors(2)}>
@@ -65,7 +67,7 @@ class ColorChart extends React.Component{
             </div>
             <hr className='light'/>
             <div id="colors2" className='color-container hidden'>
-              {this.getColors(COLORS.frost)}
+              {this.getColors("frost")}
             </div>
 
             <div className="banner" onClick={this.hideColors(3)}>
@@ -74,7 +76,7 @@ class ColorChart extends React.Component{
             </div>
             <hr className='light'/>
             <div id="colors3" className='color-container hidden'>
-              {this.getColors(COLORS.twotone)}
+              {this.getColors("two")}
             </div>
 
             <div className="banner" onClick={this.hideColors(4)}>
@@ -83,7 +85,7 @@ class ColorChart extends React.Component{
             </div>
             <hr className='light'/>
             <div id="colors4" className='color-container hidden'>
-              {this.getColors(COLORS.specialF)}
+              {this.getColors("specialf")}
             </div>
 
             <div className="banner" onClick={this.hideColors(5)}>
@@ -92,7 +94,7 @@ class ColorChart extends React.Component{
             </div>
             <hr className='light'/>
             <div id="colors5" className='color-container hidden'>
-              {this.getColors(COLORS.threetone)}
+              {this.getColors("three")}
             </div>
 
             <div className="banner" onClick={this.hideColors(6)}>
@@ -101,7 +103,7 @@ class ColorChart extends React.Component{
             </div>
             <hr className='light'/>
             <div id="colors6" className='color-container hidden'>
-              {this.getColors(COLORS.freyasilky)}
+              {this.getColors("silky")}
             </div>
           </section>
         </div>

@@ -4,7 +4,7 @@ class ColorObj extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-      img: window.imgAssets[`${this.props.color}.jpg`]
+      img: this.props.img
     };
   }
 
