@@ -1,7 +1,7 @@
 import {
   RECEIVE_PRODUCT, RECEIVE_PRODUCTS, RECEIVE_NEW_PRODUCT, REMOVE_PRODUCT
 } from '../actions/product_actions';
-import merge from "lodash/merge";
+import merge from "lodash.merge";
 import { findObject } from '../util/util_functions';
 
 export default (state, action) => {

@@ -1,7 +1,7 @@
 import { createStore } from 'redux';
 import RootReducer from '../reducer/root_reducer.js';
 import RootMiddleware from '../middleware/root_middleware.js';
-import merge from 'lodash/merge';
+import merge from 'lodash.merge';
 
 const _default = {
   session: {

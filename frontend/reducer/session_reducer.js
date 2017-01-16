@@ -1,6 +1,6 @@
 import { RECEIVE_CURRENT_USER,  LOGOUT } from '../actions/session_actions';
 import { RECEIVE_ERRORS } from '../actions/util_actions.js'
-import merge from "lodash/merge";
+import merge from "lodash.merge";
 
 const defaultForms = {
   logIn: {errors: []},

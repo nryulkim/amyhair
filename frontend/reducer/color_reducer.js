@@ -1,7 +1,7 @@
 import {
   RECEIVE_ALL_COLORS, RECEIVE_COLOR, REMOVE_COLOR
 } from '../actions/color_actions';
-import merge from "lodash/merge";
+import merge from "lodash.merge";
 
 export default (state, action) => {
   let newState = merge({}, state);
