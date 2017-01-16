@@ -5,48 +5,46 @@
   background-color: #fff;
   padding: 5px 10px;
   color: #555;
-}
 
-#product-list.minoridx{
-  justify-content: center;
-}
-
-#product-list .container{
-  background-color: #f5f5f5;
-  box-shadow: 1px 1px 3px #a0a0a0;
-  margin: 5px;
-  padding: 10px;
-}
-
-#product-list .sidebar{
-  width: 25%;
-}
-
-  #product-list .sidebar ul{
-    list-style: none;
+  .container{
+    background-color: #f5f5f5;
+    box-shadow: 1px 1px 3px #a0a0a0;
+    margin: 5px;
+    padding: 10px;
   }
-    #product-list .sidebar li{
-      margin: 5px 0;
-    }
 
-    #product-list .sidebar a:hover{
+  .sidebar{
+    width: 25%;
+
+    a:hover{
       font-weight: bold;
       color: #aaa;
     }
 
-#product-list .content{
-  height: 100%;
-  width: 75%;
-}
-  #product-list .pictures{
+    ul{
+      list-style: none;
+
+      li{
+        margin: 5px 0;
+
+      }
+    }
+  }
+
+  .content{
+    height: 100%;
+    width: 75%;
+
+  }
+  .pictures{
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
     width: 880px;
     margin: 0 auto;
-  }
 
-  #product-list .pic{
+  }
+  .pic{
     display: flex;
     cursor: pointer;
     position: relative;
@@ -55,20 +53,22 @@
     background: transparent;
     box-shadow: 1px 1px 3px #a0a0a0;
     margin: 10px;
-  }
-    #product-list .pic .temp{
+
+    .temp{
       background-color: #a5c5d5;
       width: 200px;
       height: 300px;
     }
-    #product-list .pic .img{
+
+    .img{
       position: absolute;
       top: 0;
       background-color: #a5c5d5;
       left: 0;
       z-index: 1;
     }
-    #product-list .pic .caption{
+
+    .caption{
       display: flex;
       justify-content: center;
       transition: height 0.5s;
@@ -79,19 +79,47 @@
       width: 100%;
       box-shadow: 0px 0px 2px #a0a0a0;
       z-index: 2;
-    }
-      #product-list .caption p{
+
+      p{
         align-self: center;
         text-align: center;
         margin: 0;
       }
-      #product-list .pic:hover .caption{
-        height: 70px;
-      }
+    }
 
-#main header.product-banner{
-  padding: 30px;
-  background: #7D7D7D;
+  }
+}
+
+//temporary need to fix
+@media screen and (max-width: 1260px) {
+  #product-list{
+    flex-direction: column;
+    .content{
+      width: 100%;
+    }
+
+    .sidebar{
+      width: 80%;
+      margin: 0 auto;
+    }
+  }
+}
+
+
+
+
+
+
+#main > header.products-banner{
+  background: #f9f9f9;
+  background-image: -moz-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), image-url("backgrounds/back2.jpg");
+  background-image: -webkit-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), image-url("backgrounds/back2.jpg");
+  background-image: -ms-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), image-url("backgrounds/back2.jpg");
+  background-image: linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), image-url("backgrounds/back2.jpg");
+  background-attachment: fixed;
+  background-position: right top;
+  background-repeat: no-repeat;
+  text-align: center;
 }
 
 #product-content{
