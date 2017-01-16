@@ -11,9 +11,9 @@ const _default = {
         errors: []
       }
     }
-  }
+  },
   colors: {
-    
+
   }
 }
 

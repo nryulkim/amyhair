@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router';
+import AddColor from './controls/add_color_container';
 
 class CPanel extends React.Component {
   constructor(props){
@@ -31,7 +32,7 @@ class CPanel extends React.Component {
       case "removeproduct":
         return (<h1>Method to remove product</h1>);
       case "addcolor":
-        return (<h1>Some way to add colors</h1>);
+        return (<AddColor/>);
       case "removecolor":
         return (<h1>Gotta remove colors too</h1>);
     }

@@ -11,8 +11,76 @@
     line-height: normal;
     font-size: 11px;
   }
-  h1{
-    text-align: center;
+
+  .control-main{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 10px;
     color: #333;
+    .control-list{
+      box-shadow: 0 0 3px #555;
+      padding: 5px 15px;
+      max-width: 350px;
+      background: #eee;
+      ul{
+        padding: 0;
+        white-space: nowrap;
+        list-style: none;
+        li{
+          margin: 10px auto;
+          text-align: center;
+          background: #ccc;
+          a{
+            display: block;
+            border-bottom: 0px;
+            margin-right: 6px;
+          }
+        }
+        li:hover{
+          background: #aaa;
+        }
+      }
+    }
+    .control-content{
+      box-shadow: 0 0 3px #555;
+      padding: 5px 10px;
+      margin-left: 20px;
+      width: 100%;
+      padding: 10px 20px;
+
+      .add-color-form{
+        color: #555;
+
+        input{
+          margin: 10px 0;
+          background: #eee;
+          box-shadow: 0 0 2px #aaa;
+        }
+
+        .drop_file{
+          display: none;
+        }
+
+        label{
+          color: #222;
+          text-align: center;
+          cursor: pointer;
+          font-size: 12px;
+          strong{
+            font-weight: bold;
+            color: inherit;
+          }
+
+          img.img{
+            width: 80px;
+            height: 80px;
+            margin: 0 auto;
+            display: block;
+          }
+        }
+
+      }
+    }
   }
 }

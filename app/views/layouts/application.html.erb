@@ -8,7 +8,8 @@
           "<%= image_url("featured/featured1.jpg") %>",
           "<%= image_url("featured/featured2.jpg") %>",
           "<%= image_url("featured/featured3.jpg") %>"
-        ]
+        ],
+        defaultColor: "<%= image_url("haircolors/default.jpg") %>",
       };
 
       const colors = JSON.parse("<%= getColors() %>".replace(new RegExp("&quot;", "g"), "\""));

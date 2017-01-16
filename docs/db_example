@@ -30,6 +30,7 @@ Colors
   props{
     id: int,
     name: str,
+    type: str,
     imgurl: str
   }
 
