@@ -107,13 +107,14 @@ class AddItem extends React.Component {
     if(e){ e.preventDefault(); }
     $("#submit").prop("disabled",true).toggleClass("disabled");
 
-    const { name, description, imgFile, product_id } = this.state;
+    const { name, description, imgFile, product_id, lengths } = this.state;
     const output = new FormData();
     output.append("product[name]", name);
     output.append("product[description]", description);
     output.append("product[img]", imgFile);
     output.append("product[product_id]", product_id);
-    this.props.addItem(output);
+    output.append("product[lengths]", JSON.stringify(lengths));
+    this.props.newItem(output);
     this.props.router.push({pathname: "/login"});
     this.setState({
       name: "",

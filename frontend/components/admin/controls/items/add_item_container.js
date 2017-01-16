@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { addItem } from '../../../../actions/item_actions';
+import { newItem } from '../../../../actions/item_actions';
 import AddItem from './add_item';
 
 const mapStateToProps = ({ brands, products }, ownProps) => {
@@ -11,7 +11,7 @@ const mapStateToProps = ({ brands, products }, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return({
-    addItem: (item) => dispatch(addItem(item))
+    newItem: (item) => dispatch(newItem(item))
   });
 };
 

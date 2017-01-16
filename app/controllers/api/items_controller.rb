@@ -14,6 +14,7 @@ class Api::ItemsController < ApplicationController
   end
 
   def create
+    debugger
     @item = Item.new(item_params)
     if @item.save
       render :create
