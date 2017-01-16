@@ -16,12 +16,21 @@ class CPanel extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      type: 'addproduct'
+      type: 'addproduct',
+      loaded: false
     };
 
     this.handleLogOut = this.handleLogOut.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.getForm = this.getForm.bind(this);
+    this.setContent = this.setContent.bind(this);
+  }
+
+  componentWillReceiveProps(nxtProps){
+    const { items, products, brands } = nxtProps;
+    if(items && products && brands){
+      this.setState({ loaded: true });
+    }
   }
 
   handleLogOut(){
@@ -65,6 +74,44 @@ class CPanel extends React.Component {
     return null;
   }
 
+  setContent(){
+    const { loaded } = this.state;
+
+    if(loaded){
+      return (
+        <div className="control-main">
+          <div className="control-list">
+            <ul>
+              <h1>Brands</h1>
+                <li><a onClick={this.handleChange("addbrand")}>Add Brand</a></li>
+                <li><a onClick={this.handleChange("updatebrand")}>Update Brand</a></li>
+                <li><a onClick={this.handleChange("removebrand")}>Remove Brand</a></li>
+              <h1>Products</h1>
+                <li><a onClick={this.handleChange("addproduct")}>Add Product</a></li>
+                <li><a onClick={this.handleChange("updateproduct")}>Update Product</a></li>
+                <li><a onClick={this.handleChange("removeproduct")}>Remove Product</a></li>
+              <h1>Items</h1>
+                <li><a onClick={this.handleChange("additem")}>Add Item</a></li>
+                <li><a onClick={this.handleChange("updateitem")}>Update Item</a></li>
+                <li><a onClick={this.handleChange("removeitem")}>Remove Item</a></li>
+              <h1>Colors</h1>
+                <li><a onClick={this.handleChange("addcolor")}>Add Color</a></li>
+                <li><a onClick={this.handleChange("updatecolor")}>Update Color</a></li>
+                <li><a onClick={this.handleChange("removecolor")}>Remove Color</a></li>
+            </ul>
+          </div>
+          <div className="control-content">
+            {this.getForm()}
+          </div>
+        </div>
+      );
+    }else{
+      return (
+        <img className='loader' src={window.imgAssets.loader}/>
+      );
+    }
+  }
+
   render(){
     const { formType } = this.props;
 
@@ -77,30 +124,8 @@ class CPanel extends React.Component {
           <div className="clrfx">
             <button onClick={this.handleLogOut}>Log Out</button>
           </div>
-          <div className="control-main">
-            <div className="control-list">
-              <ul>
-                <h1>Brands</h1>
-                  <li><a onClick={this.handleChange("addbrand")}>Add Brand</a></li>
-                  <li><a onClick={this.handleChange("updatebrand")}>Update Brand</a></li>
-                  <li><a onClick={this.handleChange("removebrand")}>Remove Brand</a></li>
-                <h1>Products</h1>
-                  <li><a onClick={this.handleChange("addproduct")}>Add Product</a></li>
-                  <li><a onClick={this.handleChange("updateproduct")}>Update Product</a></li>
-                  <li><a onClick={this.handleChange("removeproduct")}>Remove Product</a></li>
-                <h1>Items</h1>
-                  <li><a onClick={this.handleChange("additem")}>Add Item</a></li>
-                  <li><a onClick={this.handleChange("updateitem")}>Update Item</a></li>
-                  <li><a onClick={this.handleChange("removeitem")}>Remove Item</a></li>
-                <h1>Colors</h1>
-                  <li><a onClick={this.handleChange("addcolor")}>Add Color</a></li>
-                  <li><a onClick={this.handleChange("updatecolor")}>Update Color</a></li>
-                  <li><a onClick={this.handleChange("removecolor")}>Remove Color</a></li>
-              </ul>
-            </div>
-            <div className="control-content">
-              {this.getForm()}
-            </div>
+          <div className="content">
+            {this.setContent()}
           </div>
         </div>
       </article>
