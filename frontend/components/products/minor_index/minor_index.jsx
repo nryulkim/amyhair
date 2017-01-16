@@ -29,15 +29,16 @@ class MinorIndex extends React.Component{
       image_url: brand.image_url,
       products: brand.products
     });
+    $("#main .products-banner").css({
+  		'background-image': `linear-gradient(top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${brand.image_url})`
+    });
   }
 
   componentDidMount(){
-    $("#page-wrapper").addClass('products-page');
     this.setBrand();
   }
 
   componentWillUnmount(){
-    $('#page-wrapper').removeClass('products-page');
     this.setState({
       name: 'Not Found',
       description: 'This brand cannot be found.',
@@ -58,7 +59,9 @@ class MinorIndex extends React.Component{
       const path = "prod/" + prod.id;
       rslt.push(
         <Link className="pic" to={path} key={i}>
-          <div className="temp img"/>
+          <div className="temp img">
+            <img src={prod.image_url}></img>
+          </div>
           <div className="caption">
             <p>{prod.name}</p>
           </div>

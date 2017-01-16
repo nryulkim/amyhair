@@ -34,7 +34,7 @@
 
   .content{
     height: 100%;
-    width: 75%;
+    width: 90%;
 
   }
   .pictures{
@@ -42,7 +42,7 @@
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: center;
-    width: 70%;
+    width: 100%;
     margin: 0 auto;
 
   }
@@ -58,6 +58,11 @@
 
     .temp{
       background-color: #a5c5d5;
+      width: 200px;
+      height: 300px;
+    }
+
+    .temp img{
       width: 200px;
       height: 300px;
     }

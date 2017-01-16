@@ -27,6 +27,9 @@ class ProdIndex extends React.Component{
       image_url: product.image_url,
       items: product.items
     });
+    $("#main .products-banner").css({
+  		'background-image': `linear-gradient(top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${product.image_url})`
+    });
   }
 
   componentDidMount(){
@@ -56,7 +59,9 @@ class ProdIndex extends React.Component{
       const path = "show/" + itm.id;
       rslt.push(
         <Link className="pic" to={path} key={i}>
-          <div className="temp img"/>
+          <div className="temp img">
+            <img src={itm.image_url}></img>
+          </div>
           <div className="caption">
             <p>{itm.name}</p>
           </div>

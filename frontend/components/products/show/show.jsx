@@ -36,6 +36,9 @@ class Show extends React.Component{
       image_url: item.image_url,
       lengths: item.lengths
     });
+    $("#main .products-banner").css({
+  		'background-image': `linear-gradient(top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${item.image_url})`
+    });
   }
 
   setZoom(){
