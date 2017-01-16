@@ -14,6 +14,7 @@ export default class App extends React.Component{
 
           <footer id="footer">
 						<ul className="copyright">
+              <li>Contact us: <a href="mailto:sales@amyhair.com">sales@amyhair.com</a></li>
 							<li>Copyright &copy; 2010 Aviance Hair Corp. All rights reserved.</li>
             </ul>
 					</footer>

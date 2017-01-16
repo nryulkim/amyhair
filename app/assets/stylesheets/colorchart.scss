@@ -42,26 +42,27 @@
 
 #main > header.colorchart{
   background-color: #B3C6C7;
-  background-image: -moz-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), image-url("backgrounds/warehouse.jpg");
-  background-image: -webkit-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), image-url("backgrounds/warehouse.jpg");
-  background-image: -ms-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), image-url("backgrounds/warehouse.jpg");
-  background-image: linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), image-url("backgrounds/warehouse.jpg");
+  background-image: -moz-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), image-url("backgrounds/color_banner.jpg");
+  background-image: -webkit-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), image-url("backgrounds/color_banner.jpg");
+  background-image: -ms-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), image-url("backgrounds/color_banner.jpg");
+  background-image: linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), image-url("backgrounds/color_banner.jpg");
   background-attachment: fixed;
-  background-position: right center;
+  background-position: center center;
+  background-size: cover;
   background-repeat: no-repeat;
   text-align: center;
 }
 
 body.landing #page-wrapper.colorchart-page{
   background-color: #B3C6C7;
-  background-image: -moz-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), image-url("backgrounds/warehouse.jpg");
-  background-image: -webkit-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), image-url("backgrounds/warehouse.jpg");
-  background-image: -ms-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), image-url("backgrounds/warehouse.jpg");
-  background-image: linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), image-url("backgrounds/warehouse.jpg");
+  background-image: -moz-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), image-url("backgrounds/color_banner.jpg");
+  background-image: -webkit-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), image-url("backgrounds/color_banner.jpg");
+  background-image: -ms-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), image-url("backgrounds/color_banner.jpg");
+  background-image: linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), image-url("backgrounds/color_banner.jpg");
   background-attachment: fixed;
-  background-position: right center;
+  background-position: center center;
+  background-size: cover;
   background-repeat: no-repeat;
-  background-size: auto 100%;
   padding-top: 0;
 }
 

@@ -3668,19 +3668,7 @@
 /* Main */
 
 	#main > header {
-		padding: 12em 0 10em 0 ;
-		text-align: center;
-	}
-
-	#main > header.contact-us{
-		background-image: -moz-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), image-url("backgrounds/warehouse.jpg");
-		background-image: -webkit-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), image-url("backgrounds/warehouse.jpg");
-		background-image: -ms-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), image-url("backgrounds/warehouse.jpg");
-		background-image: linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), image-url("backgrounds/warehouse.jpg");
-		background-attachment: fixed;
-		background-position: center bottom;
-		background-repeat: no-repeat;
-		background-size: cover;
+		padding: 8em 0 6em 0 ;
 		text-align: center;
 	}
 
@@ -3835,6 +3823,7 @@
 /* Landing */
 
 	body.landing #page-wrapper {
+		background: #fff;
 		background-image: -moz-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), image-url("backgrounds/back1.jpg");
 		background-image: -webkit-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), image-url("backgrounds/back1.jpg");
 		background-image: -ms-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), image-url("backgrounds/back1.jpg");

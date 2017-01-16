@@ -21,7 +21,6 @@ const Root = ({store}) => {
           <Redirect from="about-us" to="/"/>
           <Redirect from="home" to="/"/>
           <Router path="colorchart" component={ColorChart} onEnter={resetScreen}/>
-          <Router path="contactus" component={Contact} onEnter={resetScreen}/>
           <Router path="products" component={ProductIndex} onEnter={resetScreen}/>
           <Router path="show/:id" component={Show} onEnter={resetScreen}/>
           <Router path="idx/:id" component={MinorIndex} onEnter={resetScreen}/>
