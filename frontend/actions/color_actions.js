@@ -26,10 +26,10 @@ export function receiveAllColors(colors){
   })
 }
 
-export function removeColor(id){
+export function removeColor(color){
   return({
     type: REMOVE_COLOR,
-    id
+    color
   })
 }
 

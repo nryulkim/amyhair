@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, withRouter } from 'react-router';
 import { setDragAndDrop } from '../../../util/util_functions';
 
-class UpdateColor extends React.Component {
+class DeleteColor extends React.Component {
   constructor(props){
     super(props);
     this.state = {
@@ -12,14 +12,11 @@ class UpdateColor extends React.Component {
       imgFile: "",
       imgURL: window.imgAssets.defaultColor
     };
-    this.updateImg = this.updateImg.bind(this);
-    this.getImg = this.getImg.bind(this);
     this.handleShow = this.handleShow.bind(this);
     this.getColorList = this.getColorList.bind(this);
     this.getForm = this.getForm.bind(this);
     this.colorChooser = this.colorChooser.bind(this);
     this.setName = this.setName.bind(this);
-    this.update = this.update.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -28,14 +25,7 @@ class UpdateColor extends React.Component {
     $("#submit").prop("disabled",true).toggleClass("disabled");
 
     const { id, name, color_type, imgFile } = this.state;
-    const output = new FormData();
-    output.append("color[name]", name);
-    output.append("color[id]", id);
-    output.append("color[color_type]", color_type.toLowerCase());
-    if(imgFile){
-      output.append("color[img]", imgFile);
-    }
-    this.props.updateColor(output);
+    this.props.deleteColor(id);
     this.setState({
       id: null,
       color_type: "",
@@ -43,28 +33,6 @@ class UpdateColor extends React.Component {
       imgFile: "",
       imgURL: window.imgAssets.defaultColor
     });
-  }
-
-  update(input){
-    return (e) => {
-      this.setState({ [input]: e.currentTarget.value });
-    };
-  }
-
-  updateImg(e){
-    const file = e.currentTarget.files[0];
-    this.getImg(file);
-  }
-
-  getImg(file){
-    const fileReader = new FileReader();
-    fileReader.onloadend = () => {
-      this.setState({ imgFile: file, imgURL: fileReader.result });
-    };
-    if(file){
-      fileReader.readAsDataURL(file);
-    }
-
   }
 
   handleShow(color_type){
@@ -135,7 +103,7 @@ class UpdateColor extends React.Component {
   getForm(){
     window.setTimeout(() => setDragAndDrop("#dropImg", this.getImg), 300);
     return(<form className="add-color-form" onSubmit={this.handleSubmit}>
-      <select value={this.state.color_type} onChange={this.update('color_type')}>
+      <select value={this.state.color_type}>
         <option value="solid">Solid</option>
         <option value="frost mix">Frost Mix</option>
         <option value="two tone">Two Tone</option>
@@ -145,21 +113,11 @@ class UpdateColor extends React.Component {
       </select>
       <input
         type="text"
-        value={this.state.name}
-        onChange={this.update('name')}
-        placeholder="What is the name of the color? (1, 1b...)"/>
+        value={this.state.name}/>
       <div className="img-input-container">
-        <div id="dropImg">
-          <input type="file" className="drop_file"  id="img" onChange={this.updateImg}></input>
-          <label htmlFor="img">
-            <img className="img" src={this.state.imgURL}/>
-            <strong>Choose an image</strong> or drag it here.
-          </label>
-        </div>
-
-        <button id="submit" type="submit">Submit</button>
+        <img className="img" src={this.state.imgURL}/>
       </div>
-
+      <button id="submit" type="submit">Submit</button>
     </form>);
   }
 
@@ -176,4 +134,4 @@ class UpdateColor extends React.Component {
   }
 }
 
-export default withRouter(UpdateColor);
+export default withRouter(DeleteColor);

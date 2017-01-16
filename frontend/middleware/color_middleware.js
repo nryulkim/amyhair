@@ -1,7 +1,7 @@
 import * as ColorAPI from '../util/api/color_api';
 import {
-  ADD_COLOR, GET_ALL_COLORS, UPDATE_COLOR,
-  receiveAllColors, receiveColor
+  ADD_COLOR, GET_ALL_COLORS, UPDATE_COLOR, DELETE_COLOR,
+  receiveAllColors, receiveColor, removeColor
 } from '../actions/color_actions';
 
 export default ({ getState, dispatch }) => next => action => {
@@ -20,6 +20,13 @@ export default ({ getState, dispatch }) => next => action => {
         dispatch(receiveColor(color));
       }
       ColorAPI.newColor(action.color, success, errors);
+      return next(action);
+
+    case DELETE_COLOR:
+      success = (id) => {
+        dispatch(removeColor(id));
+      }
+      ColorAPI.destroyColor(action.id, success, errors);
       return next(action);
 
     case UPDATE_COLOR:

@@ -6,7 +6,7 @@ class AddColor extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      color_type: "",
+      color_type: "solid",
       name: "",
       imgFile: "",
       imgURL: window.imgAssets.defaultColor
@@ -67,11 +67,14 @@ class AddColor extends React.Component {
 
     return(
       <form className="add-color-form" onSubmit={this.handleSubmit}>
-        <input
-          type="text"
-          value={this.state.color_type.toLowerCase()}
-          onChange={this.update('color_type')}
-          placeholder="What kind of color is it? (Solid, Frost...)"/>
+        <select value={this.state.color_type} onChange={this.update('color_type')}>
+          <option value="solid">Solid</option>
+          <option value="frost mix">Frost Mix</option>
+          <option value="two tone">Two Tone</option>
+          <option value="special f mix">Special F Mix</option>
+          <option value="three tone">Three Tone</option>
+          <option value="freya silky">Freya Silky</option>
+        </select>
         <input
           type="text"
           value={this.state.name}

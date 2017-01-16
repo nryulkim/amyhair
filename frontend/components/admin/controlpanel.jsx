@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, withRouter } from 'react-router';
 import AddColor from './controls/add_color_container';
 import UpdateColor from './controls/update_color_container';
+import DeleteColor from './controls/delete_color_container';
 
 class CPanel extends React.Component {
   constructor(props){
@@ -37,7 +38,7 @@ class CPanel extends React.Component {
       case "updatecolor":
         return (<UpdateColor/>);
       case "removecolor":
-        return (<h1>Gotta remove colors too</h1>);
+        return (<DeleteColor/>);
     }
     return null;
   }
