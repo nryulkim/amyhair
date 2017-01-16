@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { addBrand } from '../../../../actions/brand_actions';
+import { newBrand } from '../../../../actions/brand_actions';
 import AddBrand from './add_brand';
 
 const mapStateToProps = ({ brands }, ownProps) => {
@@ -9,7 +9,7 @@ const mapStateToProps = ({ brands }, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return({
-    addBrand: (brand) => dispatch(addBrand(brand))
+    newBrand: (brand) => dispatch(newBrand(brand))
   });
 };
 

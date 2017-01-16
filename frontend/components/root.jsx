@@ -3,6 +3,7 @@ import { Provider } from "react-redux";
 import { Redirect, Router, Route, IndexRoute, hashHistory } from 'react-router';
 import { clearErrors } from '../actions/util_actions';
 import { getAllColors } from '../actions/color_actions';
+import { getBrands } from '../actions/brand_actions';
 import App from './app';
 import Main from './main/main.jsx';
 import Contact from './contact/contact.jsx';
@@ -40,6 +41,13 @@ const Root = ({store}) => {
     resetScreen();
   }
 
+  const _getBrands = () => {
+    if(!store.getState().brands.brands){
+      store.dispatch(getBrands());
+    }
+    resetScreen();
+  }
+
   const _clearErrors = () => {
     store.dispatch(clearErrors());
   };
@@ -47,6 +55,7 @@ const Root = ({store}) => {
   const _controlPanel = () => {
     _redirectIfNotLoggedIn();
     _getColors();
+    _getBrands();
   }
 
   return (

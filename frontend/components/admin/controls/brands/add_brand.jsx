@@ -52,7 +52,7 @@ class AddBrand extends React.Component {
     output.append("brand[brand]", brand);
     output.append("brand[description]", description);
     output.append("brand[img]", imgFile);
-    this.props.addColor(output);
+    this.props.newBrand(output);
     this.props.router.push({pathname: "/login"});
     this.setState({
       brand: "",

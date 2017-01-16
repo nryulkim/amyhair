@@ -14,3 +14,12 @@ export function setDragAndDrop(id, callback){
     callback(e.originalEvent.dataTransfer.files[0]);
   });
 }
+
+export function findObject(array, id){
+  for (let i = 0; i < array.length; i++) {
+    if(array[i].id === id){
+      return i;
+    }
+  }
+  return -1;
+}

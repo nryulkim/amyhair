@@ -23,7 +23,7 @@ export const newBrand = (brand, success, error) => {
 export const updateBrand = (brand, success, error) => {
   $.ajax({
     method: "PATCH",
-    url: `/api/brands/${brand.id}`,
+    url: `/api/brands/${brand.get('brand[id]')}`,
     data: brand,
     dataType: "json",
     contentType: false,

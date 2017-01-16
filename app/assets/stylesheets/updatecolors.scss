@@ -1,27 +1,26 @@
-.color-chooser{
+.chooser{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   padding: 10px;
+  ul{
+    list-style: none;
+    margin: 0 10px 0 0;
+    padding: 0;
+    li{
+      padding: 0;
+      white-space: nowrap;
 
+      a:hover{
+        weight: bold;
+        color: rgb(35, 198, 165);
+      }
+    }
+
+  }
   .type-chooser{
     max-width: 225px;
     border-right: 2px dotted #aaa;
-    ul{
-      list-style: none;
-      margin: 0 10px 0 0;
-      padding: 0;
-      li{
-        padding: 0;
-        white-space: nowrap;
-
-        a:hover{
-          weight: bold;
-          color: rgb(35, 198, 165);
-        }
-      }
-
-    }
   }
   .name-chooser{
     max-height: 300px;

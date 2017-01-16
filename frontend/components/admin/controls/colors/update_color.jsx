@@ -100,7 +100,7 @@ class UpdateColor extends React.Component {
     const { colors } = this.props;
 
     return(
-      <div className="color-chooser">
+      <div className="chooser">
         <div className="type-chooser">
           <ul>
             <li>
@@ -134,7 +134,7 @@ class UpdateColor extends React.Component {
 
   getForm(){
     window.setTimeout(() => setDragAndDrop("#dropImg", this.getImg), 300);
-    return(<form className="add-color-form" onSubmit={this.handleSubmit}>
+    return(<form className="add-form" onSubmit={this.handleSubmit}>
       <select value={this.state.color_type} onChange={this.update('color_type')}>
         <option value="solid">Solid</option>
         <option value="frost mix">Frost Mix</option>
