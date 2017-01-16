@@ -1,4 +1,5 @@
 import React from 'react';
+import Menu from './menu';
 import { Link, withRouter } from 'react-router';
 
 class Header  extends React.Component{
@@ -19,10 +20,11 @@ class Header  extends React.Component{
               <a onClick={() => {
                   $(".landing").addClass("is-menu-visible");
                 }} className="menuToggle"><span>Menu</span></a>
-              </li>
-            </ul>
-          </nav>
-        </header>
+            </li>
+          </ul>
+        </nav>
+        <Menu/>
+      </header>
       );
   }
 }

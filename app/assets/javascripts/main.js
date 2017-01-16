@@ -65,20 +65,6 @@ var skel=function(){"use strict";var t={breakpointIds:null,events:{},isInit:!1,o
 				);
 			});
 
-		// Menu.
-			$('#menu')
-				.append('<a href="#menu" class="close"></a>')
-				.appendTo($body)
-				.panel({
-					delay: 100,
-					hideOnClick: true,
-					hideOnSwipe: true,
-					resetScroll: true,
-					resetForms: true,
-					side: 'right',
-					target: $body,
-					visibleClass: 'is-menu-visible'
-				});
 
 	});
 
