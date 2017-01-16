@@ -1,5 +1,5 @@
 import React from 'react';
-import Menu from './menu';
+import Menu from './menu_container';
 import { Link, withRouter } from 'react-router';
 
 class Header  extends React.Component{

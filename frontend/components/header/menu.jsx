@@ -24,12 +24,17 @@ class Header  extends React.Component{
   }
 
   render(){
+    let cpanel = null;
+    if(this.props.currentUser){
+      cpanel = <li><a href="#cpanel">Control Panel</a></li>;
+    }
     return (
       <div id="menu">
         <ul>
           <li><a href="#home">Home</a></li>
           <li><a href="#products">Products</a></li>
           <li><a href="#colorchart">Color Chart</a></li>
+          {cpanel}
         </ul>
       </div>
       );
