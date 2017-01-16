@@ -1,4 +1,9 @@
 class Api::ProductsController < ApplicationController
+  def index
+    @products = Product.all.includes(:items)
+    render :index
+  end
+
   def show
     @product = Product.where(id: params[:id]).includes(:items)[0]
     if @product
@@ -40,6 +45,6 @@ class Api::ProductsController < ApplicationController
 
   private
   def product_params
-    params.require(:product).permit(:name, :description, :img)
+    params.require(:product).permit(:name, :description, :img, :brand_id)
   end
 end

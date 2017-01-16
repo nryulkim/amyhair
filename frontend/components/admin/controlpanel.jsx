@@ -2,10 +2,12 @@ import React from 'react';
 import { Link, withRouter } from 'react-router';
 import AddColor from './controls/colors/add_color_container';
 import AddBrand from './controls/brands/add_brand_container';
+import AddProduct from './controls/products/add_product_container';
 import UpdateColor from './controls/colors/update_color_container';
 import UpdateBrand from './controls/brands/update_brand_container';
 import DeleteColor from './controls/colors/delete_color_container';
 import DeleteBrand from './controls/brands/delete_brand_container';
+import DeleteProduct from './controls/products/delete_product_container';
 
 class CPanel extends React.Component {
   constructor(props){
@@ -39,9 +41,9 @@ class CPanel extends React.Component {
       case "removebrand":
         return (<DeleteBrand/>);
       case "addproduct":
-        return (<h1>Add product form goes here</h1>);
+        return (<AddProduct/>);
       case "removeproduct":
-        return (<h1>Method to remove product</h1>);
+        return (<DeleteProduct/>);
       case "addcolor":
         return (<AddColor/>);
       case "updatecolor":
