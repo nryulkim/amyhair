@@ -20,6 +20,6 @@ class Item < ApplicationRecord
   validates_attachment_content_type :img, content_type: /\Aimage\/.*\z/
 
   belongs_to :product
-  has_many :lengths
+  has_many :lengths, dependent: :destroy
   has_many :colors, through: :lengths
 end

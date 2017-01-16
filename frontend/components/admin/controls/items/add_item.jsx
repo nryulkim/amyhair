@@ -82,7 +82,7 @@ class AddItem extends React.Component {
             value={this.state.lengths[i].length}
             key={'l' + i}
             onChange={this.updateLength(i)}
-            placeholder="Add Length"/>
+            placeholder="Add Length (example: 12)"/>
           <input
             type="text"
             value={this.state.lengths[i].colors}
@@ -109,11 +109,11 @@ class AddItem extends React.Component {
 
     const { name, description, imgFile, product_id, lengths } = this.state;
     const output = new FormData();
-    output.append("product[name]", name);
-    output.append("product[description]", description);
-    output.append("product[img]", imgFile);
-    output.append("product[product_id]", product_id);
-    output.append("product[lengths]", JSON.stringify(lengths));
+    output.append("item[name]", name);
+    output.append("item[description]", description);
+    output.append("item[img]", imgFile);
+    output.append("item[product_id]", product_id);
+    output.append("item[lengths]", JSON.stringify(lengths));
     this.props.newItem(output);
     this.props.router.push({pathname: "/login"});
     this.setState({

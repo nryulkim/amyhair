@@ -1,6 +1,6 @@
 class Api::ItemsController < ApplicationController
   def index
-    @brands = Item.all.includes(lengths: [:colors])
+    @items = Item.all.includes(lengths: [:colors])
     render :index
   end
 
@@ -14,9 +14,27 @@ class Api::ItemsController < ApplicationController
   end
 
   def create
-    debugger
     @item = Item.new(item_params)
+
     if @item.save
+      lengths = JSON.parse(length_params['lengths'])
+      lengths.each do |length|
+        attrs = { item_id: @item.id, length: length.length }
+        new_length = Length.new(attrs)
+
+        if new_length.save
+          colors = length['colors'].split(",").map() { |val| val.strip() }
+          colors.each do |color|
+            found_color = Color.find_by(name: color)
+            if found_color
+              ItemColor.create!({ length_id: new_length.id, color_id: found_color.id })
+            end
+          end
+        else
+          @errors = @length.errors.full_messages
+          render json: @errors, status: 422
+        end
+      end
       render :create
     else
       @errors = @item.errors.full_messages
@@ -46,6 +64,11 @@ class Api::ItemsController < ApplicationController
 
   private
   def item_params
-    params.require(:item).permit(:name, :description, :img)
+    params.require(:item).permit(:name, :description, :img, :product_id)
   end
+
+  def length_params
+    params.require(:item).permit(:lengths)
+  end
+
 end
