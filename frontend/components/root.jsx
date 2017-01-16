@@ -4,6 +4,7 @@ import { Redirect, Router, Route, IndexRoute, hashHistory } from 'react-router';
 import { clearErrors } from '../actions/util_actions';
 import { getAllColors } from '../actions/color_actions';
 import { getBrands } from '../actions/brand_actions';
+import { getProduct } from '../actions/product_actions';
 import App from './app';
 import Main from './main/main.jsx';
 import Contact from './contact/contact.jsx';
@@ -50,7 +51,8 @@ const Root = ({store}) => {
   }
 
   const _getProduct = () => {
-    debugger
+    const id = parseInt(location.hash.split("/")[2]);
+    store.dispatch(getProduct(id));
     resetScreen();
   }
 

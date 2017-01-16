@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, withRouter } from 'react-router';
 import { findObject } from '../../../util/util_functions';
 
-class MinorIndex extends React.Component{
+class ProdIndex extends React.Component{
   constructor(props){
     super(props);
     this.state = {
@@ -12,13 +12,15 @@ class MinorIndex extends React.Component{
       items: []
     }
     this.setItems = this.setItems.bind(this);
-    this.getProducts = this.getProducts.bind(this);
+    this.getItems = this.getItems.bind(this);
   }
 
-  setItems(){
-    let product = this.props.product;
+  setItems(props){
+    if(!props){
+      props = this.props;
+    }
+    let product = props.product;
     if(!product){ return null; }
-
     this.setState({
       name: product.name,
       description: product.description,
@@ -42,21 +44,21 @@ class MinorIndex extends React.Component{
     });
   }
 
-  componentWillReceiveProps(){
-    this.setItems();
+  componentWillReceiveProps(nextProps){
+    this.setItems(nextProps);
   }
 
-  getProducts(){
-    const { products } = this.state;
+  getItems(){
+    const { items } = this.state;
     const rslt = [];
-    for (let i = 0; i < products.length; i++) {
-      const prod = products[i];
-      const path = "show/" + prod.id;
+    for (let i = 0; i < items.length; i++) {
+      const itm = items[i];
+      const path = "show/" + itm.id;
       rslt.push(
         <Link className="pic" to={path} key={i}>
           <div className="temp img"/>
           <div className="caption">
-            <p>{prod.name}</p>
+            <p>{itm.name}</p>
           </div>
         </Link>
       );
@@ -65,7 +67,7 @@ class MinorIndex extends React.Component{
   }
 
   render(){
-    const { name, description, products } = this.state;
+    const { name, description, items } = this.state;
     return (
       <article id="main">
         <header className="products-banner">
@@ -75,7 +77,7 @@ class MinorIndex extends React.Component{
           <div className="content container">
             <h1>Items</h1>
             <div className="pictures">
-              {this.getProducts()}
+              {this.getItems()}
             </div>
           </div>
         </section>
@@ -84,4 +86,4 @@ class MinorIndex extends React.Component{
   }
 }
 
-export default withRouter(MinorIndex);
+export default withRouter(ProdIndex);

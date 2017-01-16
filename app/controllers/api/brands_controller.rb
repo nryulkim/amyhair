@@ -1,6 +1,6 @@
 class Api::BrandsController < ApplicationController
   def index
-    @brands = Brand.all.includes(:products);
+    @brands = Brand.all.includes(:products)
     render :index
   end
 

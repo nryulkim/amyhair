@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   namespace :api do
     resources :brands, only: [:create, :index, :update, :destroy]
     resources :colors, only: [:create, :index, :update, :destroy]
+    resources :products, only: [:create, :show, :update, :destroy]
     resources :users, only: [:create, :destroy]
     resource :session, only: [:create, :destroy]
   end
