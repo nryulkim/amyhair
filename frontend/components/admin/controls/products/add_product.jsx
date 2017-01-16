@@ -72,7 +72,7 @@ class AddProduct extends React.Component {
       name: "",
       description: "",
       imgFile: "",
-      imgURL: window.imgAssets.product,
+      imgURL: "",
       brand_id: ""
     });
   }
@@ -103,12 +103,12 @@ class AddProduct extends React.Component {
               <label htmlFor="img">
                 <img className="product-img img" src={this.state.imgURL}/>
                 <strong>Choose an image</strong> or drag it here.
-                </label>
-              </div>
-
-              <button id="submit" type="submit">Submit</button>
+              </label>
             </div>
-          </form>
+
+            <button id="submit" type="submit">Submit</button>
+          </div>
+        </form>
       </div>
     );
   }

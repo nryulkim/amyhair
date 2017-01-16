@@ -21,7 +21,12 @@ export default (state, action) => {
       return newState;
 
     case RECEIVE_NEW_PRODUCT:
-      newState.products.push(action.product)
+      index = findObject(newState.products, action.product.id);
+      if(index !== -1){
+        newState.products[index] = action.product;
+      }else{
+        newState.products.push(action.product);
+      }
       return newState;
 
     case RECEIVE_PRODUCTS:

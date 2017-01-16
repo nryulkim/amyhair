@@ -5,6 +5,7 @@ import AddBrand from './controls/brands/add_brand_container';
 import AddProduct from './controls/products/add_product_container';
 import UpdateColor from './controls/colors/update_color_container';
 import UpdateBrand from './controls/brands/update_brand_container';
+import UpdateProduct from './controls/products/update_product_container';
 import DeleteColor from './controls/colors/delete_color_container';
 import DeleteBrand from './controls/brands/delete_brand_container';
 import DeleteProduct from './controls/products/delete_product_container';
@@ -42,6 +43,8 @@ class CPanel extends React.Component {
         return (<DeleteBrand/>);
       case "addproduct":
         return (<AddProduct/>);
+      case "updateproduct":
+        return (<UpdateProduct/>);
       case "removeproduct":
         return (<DeleteProduct/>);
       case "addcolor":
@@ -75,6 +78,7 @@ class CPanel extends React.Component {
                   <li><a onClick={this.handleChange("removebrand")}>Remove Brand</a></li>
                 <h1>Products</h1>
                   <li><a onClick={this.handleChange("addproduct")}>Add Product</a></li>
+                  <li><a onClick={this.handleChange("updateproduct")}>Update Product</a></li>
                   <li><a onClick={this.handleChange("removeproduct")}>Remove Product</a></li>
                 <h1>Colors</h1>
                   <li><a onClick={this.handleChange("addcolor")}>Add Color</a></li>

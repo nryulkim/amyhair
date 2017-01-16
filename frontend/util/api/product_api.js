@@ -29,6 +29,19 @@ export const createProduct = (product, success, error) => {
   });
 };
 
+export const updateProduct = (product, success, error) => {
+  $.ajax({
+    method: "PATCH",
+    url: `/api/products/${product.get('product[id]')}`,
+    data: product,
+    dataType: "json",
+    contentType: false,
+    processData: false,
+    success,
+    error
+  });
+};
+
 export const destroyProduct = (id, success, error) => {
   $.ajax({
     method: "DELETE",

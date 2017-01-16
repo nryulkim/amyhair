@@ -2,6 +2,7 @@ export const GET_PRODUCT = "GET_PRODUCT";
 export const GET_PRODUCTS = "GET_PRODUCTS";
 export const RECEIVE_PRODUCT = "RECEIVE_PRODUCT";
 export const DELETE_PRODUCT = "DELETE_PRODUCT";
+export const UPDATE_PRODUCT = "UPDATE_PRODUCT";
 export const REMOVE_PRODUCT = "REMOVE_PRODUCT";
 export const RECEIVE_NEW_PRODUCT = "RECEIVE_NEW_PRODUCT";
 export const RECEIVE_PRODUCTS = "RECEIVE_PRODUCTS";
@@ -37,6 +38,13 @@ export function getProducts(){
 export function receiveProduct(product){
   return({
     type: RECEIVE_PRODUCT,
+    product
+  });
+};
+
+export function updateProduct(product){
+  return({
+    type: UPDATE_PRODUCT,
     product
   });
 };

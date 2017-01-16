@@ -1,6 +1,6 @@
 import * as ProductAPI from '../util/api/product_api';
 import {
-  GET_PRODUCT, NEW_PRODUCT, DELETE_PRODUCT, GET_PRODUCTS,
+  GET_PRODUCT, NEW_PRODUCT, DELETE_PRODUCT, GET_PRODUCTS, UPDATE_PRODUCT,
   receiveProducts, receiveProduct, removeProduct, receiveNewProduct
 } from '../actions/product_actions';
 
@@ -27,6 +27,13 @@ export default ({ getState, dispatch }) => next => action => {
         dispatch(receiveProduct(products));
       }
       ProductAPI.getProduct(action.id, success, errors);
+      return next(action);
+
+    case UPDATE_PRODUCT:
+      success = (product) => {
+        dispatch(receiveNewProduct(product));
+      }
+      ProductAPI.updateProduct(action.product, success, errors);
       return next(action);
 
     case DELETE_PRODUCT:
