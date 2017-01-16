@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router';
-import AddColor from './controls/add_color_container';
-import UpdateColor from './controls/update_color_container';
-import DeleteColor from './controls/delete_color_container';
+import AddColor from './controls/colors/add_color_container';
+import AddBrand from './controls/brands/add_brand_container';
+import UpdateColor from './controls/colors/update_color_container';
+import DeleteColor from './controls/colors/delete_color_container';
 
 class CPanel extends React.Component {
   constructor(props){
@@ -29,6 +30,12 @@ class CPanel extends React.Component {
   getForm(){
     const { type } = this.state;
     switch(type){
+      case "addbrand":
+        return (<AddBrand/>);
+      case "updatebrand":
+        return (<h1>Method to remove brand</h1>);
+      case "removebrand":
+        return (<h1>Method to remove brand</h1>);
       case "addproduct":
         return (<h1>Add product form goes here</h1>);
       case "removeproduct":
@@ -58,11 +65,17 @@ class CPanel extends React.Component {
           <div className="control-main">
             <div className="control-list">
               <ul>
-                <li><a onClick={this.handleChange("addproduct")}>Add Product</a></li>
-                <li><a onClick={this.handleChange("removeproduct")}>Remove Product</a></li>
-                <li><a onClick={this.handleChange("addcolor")}>Add Color</a></li>
-                <li><a onClick={this.handleChange("updatecolor")}>Update Color</a></li>
-                <li><a onClick={this.handleChange("removecolor")}>Remove Color</a></li>
+                <h1>Brands</h1>
+                  <li><a onClick={this.handleChange("addbrand")}>Add Brand</a></li>
+                  <li><a onClick={this.handleChange("updatebrand")}>Update Brand</a></li>
+                  <li><a onClick={this.handleChange("removebrand")}>Remove Brand</a></li>
+                <h1>Products</h1>
+                  <li><a onClick={this.handleChange("addproduct")}>Add Product</a></li>
+                  <li><a onClick={this.handleChange("removeproduct")}>Remove Product</a></li>
+                <h1>Colors</h1>
+                  <li><a onClick={this.handleChange("addcolor")}>Add Color</a></li>
+                  <li><a onClick={this.handleChange("updatecolor")}>Update Color</a></li>
+                  <li><a onClick={this.handleChange("removecolor")}>Remove Color</a></li>
               </ul>
             </div>
             <div className="control-content">

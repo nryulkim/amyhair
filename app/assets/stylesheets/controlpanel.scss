@@ -24,6 +24,12 @@
       max-width: 350px;
       background: #eee;
       ul{
+        h1{
+          margin: 0;
+        }
+        h1:first-of-type{
+          margin-top: 5px;
+        }
         padding: 0;
         white-space: nowrap;
         list-style: none;
@@ -49,7 +55,7 @@
       width: 100%;
       padding: 10px 20px;
 
-      .add-color-form{
+      .add-form{
         color: #555;
 
         input{
@@ -84,4 +90,9 @@ img.img{
   height: 80px;
   margin: 0 auto;
   display: block;
+}
+
+img.brand-img{
+  width: 50%;
+  height: auto;
 }

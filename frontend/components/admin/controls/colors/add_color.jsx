@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router';
-import { setDragAndDrop } from '../../../util/util_functions';
+import { setDragAndDrop } from '../../../../util/util_functions';
 
 class AddColor extends React.Component {
   constructor(props){
@@ -66,7 +66,7 @@ class AddColor extends React.Component {
     const { formType } = this.props;
 
     return(
-      <form className="add-color-form" onSubmit={this.handleSubmit}>
+      <form className="add-form" onSubmit={this.handleSubmit}>
         <select value={this.state.color_type} onChange={this.update('color_type')}>
           <option value="solid">Solid</option>
           <option value="frost mix">Frost Mix</option>

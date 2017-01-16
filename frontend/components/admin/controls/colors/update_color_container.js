@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
-import { deleteColor } from '../../../actions/color_actions';
-import DeleteColor from './delete_color';
+import { updateColor } from '../../../../actions/color_actions';
+import UpdateColor from './update_color';
 
 const mapStateToProps = ({ colors }, ownProps) => {
   return({
@@ -10,10 +10,10 @@ const mapStateToProps = ({ colors }, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return({
-    deleteColor: (color) => dispatch(deleteColor(color))
+    updateColor: (color) => dispatch(updateColor(color))
   });
 };
 
 export default connect(
   mapStateToProps, mapDispatchToProps
-)(DeleteColor);
+)(UpdateColor);
