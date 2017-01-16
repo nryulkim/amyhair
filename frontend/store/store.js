@@ -12,6 +12,9 @@ const _default = {
       }
     }
   }
+  colors: {
+    
+  }
 }
 
 export default (state = {}) => {
