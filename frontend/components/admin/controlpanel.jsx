@@ -3,6 +3,7 @@ import { Link, withRouter } from 'react-router';
 import AddColor from './controls/colors/add_color_container';
 import AddBrand from './controls/brands/add_brand_container';
 import AddProduct from './controls/products/add_product_container';
+import AddItem from './controls/items/add_item_container';
 import UpdateColor from './controls/colors/update_color_container';
 import UpdateBrand from './controls/brands/update_brand_container';
 import UpdateProduct from './controls/products/update_product_container';
@@ -47,6 +48,12 @@ class CPanel extends React.Component {
         return (<UpdateProduct/>);
       case "removeproduct":
         return (<DeleteProduct/>);
+      case "additem":
+        return (<AddItem/>);
+      case "updateitem":
+        return (<h1>hello</h1>);
+      case "removeitem":
+        return (<h1>Fix this</h1>);
       case "addcolor":
         return (<AddColor/>);
       case "updatecolor":
@@ -80,6 +87,10 @@ class CPanel extends React.Component {
                   <li><a onClick={this.handleChange("addproduct")}>Add Product</a></li>
                   <li><a onClick={this.handleChange("updateproduct")}>Update Product</a></li>
                   <li><a onClick={this.handleChange("removeproduct")}>Remove Product</a></li>
+                <h1>Items</h1>
+                  <li><a onClick={this.handleChange("additem")}>Add Item</a></li>
+                  <li><a onClick={this.handleChange("updateitem")}>Update Item</a></li>
+                  <li><a onClick={this.handleChange("removeitem")}>Remove Item</a></li>
                 <h1>Colors</h1>
                   <li><a onClick={this.handleChange("addcolor")}>Add Color</a></li>
                   <li><a onClick={this.handleChange("updatecolor")}>Update Color</a></li>

@@ -10,7 +10,7 @@ export default (state, action) => {
   let index;
   switch(action.type){
     case RECEIVE_BRANDS:
-      newState = merge(newState, action.brands)
+      newState = merge(newState, action.brands);
       return newState;
 
     case RECEIVE_BRAND:
@@ -24,7 +24,7 @@ export default (state, action) => {
 
     case REMOVE_BRAND:
       index = findObject(newState.brands, action.id);
-      
+
       if(index !== -1){
         newState.brands.splice(index, 1)
       }

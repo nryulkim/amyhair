@@ -64,9 +64,14 @@
           box-shadow: 0 0 2px #aaa;
         }
 
+        input:checkbox{
+
+        }
+
         .drop_file{
           display: none;
         }
+
 
         label{
           color: #222;
@@ -80,10 +85,30 @@
 
         }
 
+        .checkbox{
+          display: flex;
+          align-items: center;
+          text-align: left;
+          font-size: 18px;
+          input{
+            margin-right: 15px;
+          }
+        }
+        .delete-length{
+          padding: 1px 6px;
+          font-size: 15px;
+          border-radius: 5px;
+          color: #c00;
+          display: inline-block;
+          border: none;
+          background: rgba(210, 0, 0, 0.35);
+        }
+
       }
     }
   }
 }
+
 
 img.img{
   width: 80px;

@@ -1,4 +1,9 @@
 class Api::ItemsController < ApplicationController
+  def index
+    @brands = Item.all.includes(lengths: [:colors])
+    render :index
+  end
+
   def show
     @item = Item.where(id: params[:id]).includes(lengths: [:colors])[0]
     if @item

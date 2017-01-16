@@ -11,6 +11,7 @@ class AddProduct extends React.Component {
       imgFile: "",
       imgURL: "",
       brand_id: '17',
+      bundle: false
     };
     this.update = this.update.bind(this);
     this.getImg = this.getImg.bind(this);
@@ -53,7 +54,6 @@ class AddProduct extends React.Component {
     if(file){
       fileReader.readAsDataURL(file);
     }
-
   }
 
   handleSubmit(e){
@@ -77,6 +77,7 @@ class AddProduct extends React.Component {
     });
   }
 
+
   render(){
     const { formType } = this.props;
 
@@ -97,6 +98,7 @@ class AddProduct extends React.Component {
             value={this.state.description}
             onChange={this.update('description')}
             placeholder="Please add a description"/>
+
           <div className="img-input-container">
             <div id="dropImg">
               <input type="file" className="drop_file"  id="img" onChange={this.updateImg}></input>
@@ -105,9 +107,10 @@ class AddProduct extends React.Component {
                 <strong>Choose an image</strong> or drag it here.
               </label>
             </div>
-
-            <button id="submit" type="submit">Submit</button>
           </div>
+
+
+          <button id="submit" type="submit">Submit</button>
         </form>
       </div>
     );

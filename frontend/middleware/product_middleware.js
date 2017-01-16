@@ -24,7 +24,7 @@ export default ({ getState, dispatch }) => next => action => {
 
     case GET_PRODUCT:
       success = (product) => {
-        dispatch(receiveProduct(products));
+        dispatch(receiveProduct(product));
       }
       ProductAPI.getProduct(action.id, success, errors);
       return next(action);
