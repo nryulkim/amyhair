@@ -15,6 +15,9 @@ class Show extends React.Component{
   componentWillUnmount(){
     $('#page-wrapper').removeClass('products-page');
   }
+  componentWillReceiveProps(nextProps){
+    debugger
+  }
 
   setZoom(){
     const options = {

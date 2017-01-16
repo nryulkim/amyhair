@@ -3,7 +3,7 @@ import Show from './show';
 
 const mapStateToProps = ({ products }, ownProps) => {
   return({
-    brands: products.currentProduct
+    item: products.currentProduct
   });
 };
 

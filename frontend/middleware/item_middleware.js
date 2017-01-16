@@ -1,8 +1,8 @@
-import * as ProductAPI from '../util/api/product_api';
+import * as ItemAPI from '../util/api/item_api';
 import {
-  GET_PRODUCT,
-  receiveProduct
-} from '../actions/product_actions';
+  GET_ITEM,
+  receiveItem
+} from '../actions/item_actions';
 
 export default ({ getState, dispatch }) => next => action => {
   let success = () => {
@@ -15,12 +15,11 @@ export default ({ getState, dispatch }) => next => action => {
   };
 
   switch(action.type) {
-    case GET_PRODUCT:
+    case GET_ITEM:
       success = (brands) => {
-        dispatch(receiveProduct(brands));
+        dispatch(receiveItem(brands));
       }
-      debugger
-      ProductAPI.getProduct(action.id, success, errors);
+      ItemAPI.getItem(action.id, success, errors);
       return next(action);
 
     default:
