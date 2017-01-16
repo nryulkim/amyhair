@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router';
-import { PRODUCT_NAMES } from '../../util/products.js'
 
 class Products extends React.Component{
   constructor(props){
@@ -15,9 +14,16 @@ class Products extends React.Component{
 
   listNames(){
     const rslt = [];
-    for (let i = 0; i < PRODUCT_NAMES.length; i++) {
-      const name = PRODUCT_NAMES[i].type;
-      const path = PRODUCT_NAMES[i].path;
+    const { brands } = this.props;
+    if(!brands){ return null; }
+
+    for (let i = 0; i < brands.length; i++) {
+      let products = brands[i].products;
+      let name = brands[i].brand;
+      let path = 'show/' + brands[i].id;
+      if(products.length > 1){
+        path = 'index/' + brands[i].id;
+      }
       rslt.push(<li key={i}><Link to={path}>{name}</Link></li>);
     }
     return rslt;
@@ -32,7 +38,7 @@ class Products extends React.Component{
         </header>
         <section id="product-list">
           <div className="sidebar container">
-            <h1>Products</h1>
+            <h1>Brands</h1>
             <ul>
               {this.listNames()}
             </ul>

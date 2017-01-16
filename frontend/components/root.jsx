@@ -7,7 +7,7 @@ import { getBrands } from '../actions/brand_actions';
 import App from './app';
 import Main from './main/main.jsx';
 import Contact from './contact/contact.jsx';
-import ProductIndex from './products/index.jsx';
+import ProductIndex from './products/index_container.js';
 import Show from './products/show/show.jsx';
 import MinorIndex from './products/minor_index/minor_index.jsx';
 import ColorChart from './colorchart/colorchart_container.js';
@@ -66,7 +66,7 @@ const Root = ({store}) => {
           <Redirect from="about-us" to="/"/>
           <Redirect from="home" to="/"/>
           <Router path="colorchart" component={ColorChart} onEnter={_getColors}/>
-          <Router path="products" component={ProductIndex} onEnter={resetScreen}/>
+          <Router path="products" component={ProductIndex} onEnter={_getBrands}/>
           <Router path="show/:id" component={Show} onEnter={resetScreen}/>
           <Router path="idx/:id" component={MinorIndex} onEnter={resetScreen}/>
           <Router path="login" history={hashHistory} component={LogIn} onLeave={_clearErrors} onEnter={_redirectIfLoggedIn}/>
