@@ -4,22 +4,22 @@ class ColorObj extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-      img: `./images/haircolors/${this.props.color}.jpg`
+      img: window.imgAssets[`${this.props.color}.jpg`]
     };
   }
 
   onError(){
-    this.setState({ img: './images/haircolors/default.jpg'});
+    this.setState({ img: window.imgAssets[`default.jpg`] });
   }
 
   render(){
     return(
       <div className="color">
-        <img
+        <img className="color-img"
           src={this.state.img}
           onError={this.onError.bind(this)}
         ></img>
-      <p>{this.props.color}</p>
+        <p>{this.props.color}</p>
       </div>
     )
   }

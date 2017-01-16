@@ -163,37 +163,3 @@
     .fa{
       margin-right: 15px;
     }
-
-    .color-container{
-      display: flex;
-      margin-left: 15px;
-      flex-direction: row;
-      flex-wrap: wrap;
-      max-height: 270px;
-      overflow-x: hidden;
-      overflow-y: scroll;
-
-      -webkit-transition: max-height 0.8s;
-    	-moz-transition: max-height 0.8s;
-    	transition: max-height 0.8s;
-    }
-
-    .color-container.hidden{
-      max-height: 0;
-    }
-
-    .color{
-      text-align: center;
-      margin: 7px;
-    }
-    .color p{
-      margin: 0;
-      width: 80px;
-      height: 38px;
-      font-size: 14px;
-      text-transform: uppercase;
-    }
-
-    .color img{
-      margin: 0 auto;
-    }

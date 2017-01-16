@@ -1,3 +1,45 @@
+.color-container{
+  display: flex;
+  margin-left: 15px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  max-height: 700px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+
+  -webkit-transition: max-height 0.8s;
+	-moz-transition: max-height 0.8s;
+	transition: max-height 0.8s;
+}
+
+.color-container.hidden{
+  max-height: 0;
+}
+
+.color{
+  text-align: center;
+  margin: 7px;
+
+  .color-img{
+    margin: 0 auto;
+    width: 80px;
+    height: 80px;
+    background: image-url('haircolors/default.jpg');
+  }
+
+  p{
+    margin: 0;
+    width: 80px;
+    height: 38px;
+    font-size: 14px;
+    line-height: 18px;
+    text-transform: uppercase;
+  }
+}
+
+
+
+
 #main > header.colorchart{
   background-color: #B3C6C7;
   background-image: -moz-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), image-url("color_banner.jpg");
