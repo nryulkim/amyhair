@@ -19,7 +19,7 @@ class Featured extends React.Component{
           <h2>Featured Products</h2>
         </header>
         <Link to="show/1" className="spotlight">
-          <div className="image"><img src="images/indu-virgin.jpg" alt="" /></div>
+          <div className="image"><img src={window.imgAssets.featured[0]} alt="" /></div>
           <div className="content">
             <h2>Indu Original Virgin</h2>
             <p>100% Indu Remi Human Hair <br/> This is a description of the hair. <br/> Please add more.</p>
@@ -27,7 +27,7 @@ class Featured extends React.Component{
           </div>
         </Link>
         <Link to="show/1" className="spotlight">
-          <div className="image"><img src="images/indu-silver.jpg" alt="" /></div>
+          <div className="image"><img src={window.imgAssets.featured[1]} alt="" /></div>
           <div className="content">
             <h2>Indu Silver Label</h2>
             <p>100% Indu Remi Human Hair <br/> This is a description of the hair. <br/> Please add more.</p>
@@ -35,7 +35,7 @@ class Featured extends React.Component{
           </div>
         </Link>
         <Link to="show/1" className="spotlight">
-          <div className="image"><img src="images/labuan-remi.jpg" alt="" /></div>
+          <div className="image"><img src={window.imgAssets.featured[2]} alt="" /></div>
           <div className="content">
             <h2>Labuan Malaysian Remi</h2>
             <p>This is a description of the hair. <br/> Please add more.</p>
