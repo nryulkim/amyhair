@@ -1,4 +1,4 @@
-import * as SessionAPI from '../util/session_api';
+import * as SessionAPI from '../util/api/session_api';
 import {
   LOGIN, LOGOUT,
   receiveCurrentUser

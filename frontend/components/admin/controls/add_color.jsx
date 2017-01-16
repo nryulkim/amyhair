@@ -6,7 +6,7 @@ class CPanel extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      type: "",
+      color_type: "",
       name: "",
       imgFile: "",
       imgURL: window.imgAssets.defaultColor
@@ -45,7 +45,15 @@ class CPanel extends React.Component {
 
   handleSubmit(e){
     if(e){ e.preventDefault(); }
-    console.log("pressed submit");
+    $("#submit").prop("disabled",true).toggleClass("disabled");
+
+    let output = this.state;
+    const { name, color_type, imgFile } = this.state;
+    output = new FormData();
+    output.append("color[name]", name);
+    output.append("color[color_type]", color_type);
+    output.append("color[img]", imgFile);
+    this.props.addColor(output);
   }
 
   render(){
@@ -55,8 +63,8 @@ class CPanel extends React.Component {
       <form className="add-color-form" onSubmit={this.handleSubmit}>
         <input
           type="text"
-          value={this.state.type}
-          onChange={this.update('type')}
+          value={this.state.color_type}
+          onChange={this.update('color_type')}
           placeholder="What kind of color is it? (Basic, Mix)"/>
         <input
           type="text"

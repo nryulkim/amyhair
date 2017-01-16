@@ -2,8 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from './components/root';
-import * as UserAPI from './util/user_api';
-import * as SessionAPI from './util/session_api';
+import * as UserAPI from './util/api/user_api';
+import * as SessionAPI from './util/api/session_api';
 
 window.UserAPI = UserAPI;
 window.SessionAPI = SessionAPI;

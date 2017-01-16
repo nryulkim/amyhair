@@ -5,7 +5,7 @@ class Api::BrandsController < ApplicationController
   end
 
   def create
-    @brand = Brand.new(comment_params)
+    @brand = Brand.new(brand_params)
     if @brand.save
       render :create
     else

@@ -9,7 +9,7 @@ const mapStateToProps = ({ session }, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return({
-    addColor: () => dispatch(addColor())
+    addColor: (color) => dispatch(addColor(color))
   });
 };
 
