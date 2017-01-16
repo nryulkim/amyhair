@@ -8,8 +8,7 @@ export default (state, action) => {
 
   switch(action.type){
     case RECEIVE_ITEM:
-      debugger
-      newState.currentProduct = action.item;
+      newState.currentItem = action.item;
       return newState;
 
     default:

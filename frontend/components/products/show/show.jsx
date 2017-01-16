@@ -6,17 +6,36 @@ import { PRODUCT_NAMES } from '../../../actions/product_actions'
 class Show extends React.Component{
   constructor(props){
     super(props);
-    this.tempColors = ['1', '1b', '2', '33', 'red', 'bug'];
+    this.state = {
+      name: 'Not Found',
+      description: 'This item cannot be found.',
+      image_url: window.imgAssets.brand,
+      lengths: []
+    }
+    this.setItem = this.setItem.bind(this);
+    this.getLengthsColors = this.getLengthsColors.bind(this);
   }
+
   componentDidMount(){
-    $("#page-wrapper").addClass('products-page');
     this.setZoom();
   }
-  componentWillUnmount(){
-    $('#page-wrapper').removeClass('products-page');
-  }
+
   componentWillReceiveProps(nextProps){
-    debugger
+    this.setItem(nextProps);
+  }
+
+  setItem(props){
+    if(!props){
+      props = this.props;
+    }
+    const item = props.item;
+    if(!item){ return null; }
+    this.setState({
+      name: item.name,
+      description: item.description,
+      image_url: item.image_url,
+      lengths: item.lengths
+    });
   }
 
   setZoom(){
@@ -29,19 +48,11 @@ class Show extends React.Component{
     new Drift(document.querySelector('#prod-image'), options);
   }
 
-  onError(){
-    this.src = './images/haircolors/default.jpg';
-
-  }
-
-  getColors(){
+  getColors(colors){
     const rslt = [];
-    const colors = this.tempColors;
-
     for (let i = 0; i < colors.length; i++) {
-      const imgPath = `./images/haircolors/${colors[i]}.jpg`;
       rslt.push(
-        <ColorObj key={i} color={colors[i]}/>
+        <ColorObj color={colors[i].name} img={colors[i].image_url} key={i}/>
       )
     }
     return rslt;
@@ -62,34 +73,58 @@ class Show extends React.Component{
     }
   }
 
+  getLengthsColors(){
+    const { lengths } = this.state;
+    const rslt = [];
+    for (let i = 0; i < lengths.length; i++) {
+      const len = lengths[i].length;
+      const colors = lengths[i].colors;
+      let headTxt = len + '"';
+      if(len == -1){
+        headTxt = "Colors";
+      }
+
+
+      rslt.push(
+        <div key={i}>
+          <div className="banner" onClick={this.hideColors(i)}>
+            <h5>{headTxt}</h5>
+            <i id={"hider" + i} className="fa fa-plus" aria-hidden="true"></i>
+          </div>
+          <hr className='light'/>
+          <div id={"colors" + i} className='color-container hidden'>
+            {this.getColors(colors)}
+          </div>
+        </div>
+      )
+    }
+
+    return rslt;
+  }
+
   render(){
+    const { name, description, image_url, lengths } = this.state;
+
     return (
       <article id="main">
         <header className="product-banner">
-          <h2>Product Name</h2>
+          <h2>{name}</h2>
         </header>
         <div id="product-content">
           <div className="product-image">
             <img
               id="prod-image"
-              src="./images/backgrounds/back1.jpg"
-              data-zoom="./images/backgrounds/back1.jpg"
+              src={image_url}
+              data-zoom={image_url}
               />
           </div>
           <div className="product-description">
             <h4>Description</h4>
-              <p>Product description. More information should come here. Please add.</p>
+              <p>{description}</p>
             <hr/>
             <div className="product-colors">
-            <h4>Length and Colors</h4>
-              <div className="banner" onClick={this.hideColors(1)}>
-                <h5>14&rdquo;</h5>
-                <i id="hider1" className="fa fa-minus" aria-hidden="true"></i>
-              </div>
-              <hr className='light'/>
-              <div id="colors1" className='color-container'>
-                {this.getColors()}
-              </div>
+              <h4>Length and Colors</h4>
+              {this.getLengthsColors()}
             </div>
           </div>
         </div>

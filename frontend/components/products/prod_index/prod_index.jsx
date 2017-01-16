@@ -19,7 +19,7 @@ class ProdIndex extends React.Component{
     if(!props){
       props = this.props;
     }
-    let product = props.product;
+    const product = props.product;
     if(!product){ return null; }
     this.setState({
       name: product.name,

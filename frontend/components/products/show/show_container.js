@@ -1,9 +1,9 @@
 import { connect } from 'react-redux';
 import Show from './show';
 
-const mapStateToProps = ({ products }, ownProps) => {
+const mapStateToProps = ({ items }, ownProps) => {
   return({
-    item: products.currentProduct
+    item: items.currentItem
   });
 };
 
