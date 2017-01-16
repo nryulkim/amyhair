@@ -7,7 +7,6 @@ class Header  extends React.Component{
     super(props);
   }
 
-
   render(){
     return (
       <header id="header" className="alt">

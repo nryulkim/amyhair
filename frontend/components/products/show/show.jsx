@@ -69,8 +69,8 @@ class Show extends React.Component{
           <div className="product-image">
             <img
               id="prod-image"
-              src="./images/test1.jpg"
-              data-zoom="./images/test1.jpg"
+              src="./images/backgrounds/back1.jpg"
+              data-zoom="./images/backgrounds/back1.jpg"
               />
           </div>
           <div className="product-description">

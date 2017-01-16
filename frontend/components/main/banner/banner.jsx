@@ -18,7 +18,7 @@ class Banner extends React.Component{
     return (
       <section id="banner">
         <div className="inner">
-          <h2><img src="./images/logo.png" alt=""></img></h2>
+          <h2><img src={window.imgAssets.logo} alt=""></img></h2>
           <p>Bring Out Your Beauty</p>
           <ul className="actions">
             <li><a href="#featured-products" className="scrolly button special">Featured Products</a></li>

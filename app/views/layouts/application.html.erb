@@ -6,9 +6,10 @@
         logo: "<%= image_url("logo.png") %>"
       };
 
-      let colors = "<%= getColors() %>";
-      Object.assign(window.imgAssets, JSON.parse(colors.replace(new RegExp("&quot;", "g"), "\"")))
+      const colors = JSON.parse("<%= getColors() %>".replace(new RegExp("&quot;", "g"), "\""));
+      Object.assign(window.imgAssets, colors)
     </script>
+
     <title>Amy</title>
     <%= csrf_meta_tags %>
 
