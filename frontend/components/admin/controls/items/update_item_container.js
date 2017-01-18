@@ -12,7 +12,7 @@ const mapStateToProps = ({ brands, products, items }, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return({
-    newItem: (item) => dispatch(newItem(item))
+    updateItem: (item) => dispatch(updateItem(item))
   });
 };
 

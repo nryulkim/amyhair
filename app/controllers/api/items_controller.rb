@@ -43,9 +43,12 @@ class Api::ItemsController < ApplicationController
   end
 
   def update
-    @item = Item.find(params[:id])
+    @item = Item.where(id: params[:id]).includes(lengths: [:colors])[0]
+    lengths = JSON.parse(length_params['lengths'])
     if @item
       if @item.update(item_params)
+        create_or_update_lengths(@item, lengths)
+        @item = Item.where(id: params[:id]).includes(lengths: [:colors])[0]
         render :update
       else
         @errors = @item.errors.full_messages
@@ -71,4 +74,61 @@ class Api::ItemsController < ApplicationController
     params.require(:item).permit(:lengths)
   end
 
+  def create_or_update_lengths(item, lengths)
+    length_status = {}
+    lengths.each do |obj|
+      len = obj['length']
+      length_status[len] = {}
+      length_status[len]['status'] = 1
+      length_status[len]['colors'] = obj['colors']
+    end
+    item.lengths.each do |length|
+      obj = length_status[length.length]
+      if obj
+        length_status[length.length]['status'] = 0
+      else
+        length_status[length.length] = {}
+        length_status[length.length]['status'] = -1
+      end
+    end
+
+    length_status.each do |length, obj|
+      status = obj['status']
+      if status == 1
+        colors = obj['colors'].split(",").map() { |val| val.strip() }
+        length_obj = Length.create(item_id: item.id, length: length)
+        create_or_update_colors(length_obj, colors)
+      elsif status == 0
+        colors = obj['colors'].split(",").map() { |val| val.strip() }
+        length_obj = Length.where(item_id: item.id, length: length)[0]
+        create_or_update_colors(length_obj, colors)
+      else
+        Length.where(item_id: item.id, length: length)[0].destroy
+      end
+    end
+  end
+
+  def create_or_update_colors(length, colors)
+    color_status = {}
+    colors.each do |color|
+      color_status[color] = 1
+    end
+    length.colors.each do |color|
+      status = color_status[color.name]
+      if status == 1
+        color_status[color.name] = 0
+      else
+        color_status[color.name] = -1
+      end
+    end
+
+    color_status.each do |color, status|
+      found_color = Color.find_by(name: color)
+      if status == 1
+        ItemColor.create({ length_id: length.id, color_id: found_color.id })
+      elsif status == -1
+        ItemColor.where({ length_id: length.id, color_id: found_color.id })[0].destroy
+      end
+    end
+  end
 end

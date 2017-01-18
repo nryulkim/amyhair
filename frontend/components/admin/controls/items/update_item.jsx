@@ -107,16 +107,18 @@ class UpdateItem extends React.Component {
     if(e){ e.preventDefault(); }
     $("#submit").prop("disabled",true).toggleClass("disabled");
 
-    const { name, description, imgFile, product_id, lengths } = this.state;
+    const { id, name, description, imgFile, product_id, lengths } = this.state;
     const output = new FormData();
+    output.append("item[id]", id);
     output.append("item[name]", name);
     output.append("item[description]", description);
     output.append("item[img]", imgFile);
     output.append("item[product_id]", product_id);
     output.append("item[lengths]", JSON.stringify(lengths));
-    this.props.newItem(output);
+    this.props.updateItem(output);
     this.props.router.push({pathname: "/login"});
     this.setState({
+      id: "",
       name: "",
       description: "",
       imgFile: "",
@@ -160,12 +162,22 @@ class UpdateItem extends React.Component {
   setItem(item){
     return (e) => {
       e.preventDefault();
-      debugger
+      const lengths = [];
+      for (let i = 0; i < item.lengths.length; i++) {
+        const length = item.lengths[i];
+        const colors = length.colors.reduce((a, b) => { return a + b.name + ', '; }, "").slice(0,-2);
+        lengths.push({
+          length: length.length,
+          colors: colors
+        })
+      }
+
       this.setState({
         id: item.id,
         name: item.name,
         description: item.description,
-        imgURL: item.image_url
+        imgURL: item.image_url,
+        lengths: lengths
       })
     }
   }
@@ -174,7 +186,6 @@ class UpdateItem extends React.Component {
     if(this.state.product_id === "") { return null; }
     const rslt = [];
     const { items } = this.props;
-    debugger
     for(let i = 0; i < items.length; i++){
       if(this.state.product_id == items[i].product_id){
         rslt.push(<li key={i}><a onClick={this.setItem(items[i])}>{items[i].name}</a></li>);
@@ -257,7 +268,7 @@ class UpdateItem extends React.Component {
           {this.getLengthForms()}
         </div>
 
-        <button id="submit" type="submit">Add</button>
+        <button id="submit" type="submit">Update</button>
       </form>
     );
   }
