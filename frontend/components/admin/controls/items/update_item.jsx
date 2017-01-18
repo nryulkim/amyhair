@@ -15,6 +15,8 @@ class UpdateItem extends React.Component {
       imgURL: "",
       lengths: []
     };
+    this.updateImg = this.updateImg.bind(this);
+    this.getImg = this.getImg.bind(this);
     this.getBrandList = this.getBrandList.bind(this);
     this.getProductList = this.getProductList.bind(this);
     this.getForm = this.getForm.bind(this);
@@ -27,6 +29,21 @@ class UpdateItem extends React.Component {
     this.addLength = this.addLength.bind(this);
     this.updateLength = this.updateLength.bind(this);
     this.updateColors = this.updateColors.bind(this);
+  }
+
+  getImg(file){
+    const fileReader = new FileReader();
+    fileReader.onloadend = () => {
+      this.setState({ imgFile: file, imgURL: fileReader.result });
+    };
+    if(file){
+      fileReader.readAsDataURL(file);
+    }
+  }
+
+  updateImg(e){
+    const file = e.currentTarget.files[0];
+    this.getImg(file);
   }
 
   addLength(){
@@ -255,9 +272,9 @@ class UpdateItem extends React.Component {
           placeholder="What is the item description?"/>
         <div className="img-input-container">
           <div id="dropImg">
-            <input type="file" className="drop_file"  id="img"></input>
+            <input type="file" className="drop_file" onChange={this.updateImg} id="img"></input>
             <label htmlFor="img">
-              <img className="product-img img" src={this.state.imgURL}/>
+              <img className="product-img img" src={this.state.imgURL} />
               <strong>Choose an image</strong> or drag it here.
             </label>
           </div>
