@@ -40,6 +40,8 @@ class Api::ProductsController < ApplicationController
   def destroy
     @product = Product.find(params[:id])
     @product.destroy
+    @product.image.clear if @product.image
+
     render :destroy
   end
 

@@ -31,6 +31,8 @@ class Api::ColorsController < ApplicationController
   def destroy
     @color = Color.find(params[:id])
     @color.destroy
+    @color.image.clear if @color.image
+
     render :destroy
   end
 
