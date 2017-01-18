@@ -23,3 +23,29 @@ export function findObject(array, id){
   }
   return -1;
 }
+
+export function findColor(colors, colorType, colorId){
+  let cArr;
+  switch (colorType){
+    case "frost mix":
+      cArr = colors.frost;
+      break;
+    case "freya silky":
+      cArr = colors.silky;
+      break;
+    case "solid":
+      cArr = colors.solid;
+      break;
+    case "special f mix":
+      cArr = colors.specialf;
+      break;
+    case "three tone":
+      cArr = colors.three;
+      break;
+    case "two tone":
+      cArr = colors.two;
+      break;
+  }
+  const index = findObject(cArr, colorId);
+  return cArr[index];
+}

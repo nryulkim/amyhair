@@ -10,7 +10,7 @@ class Header  extends React.Component{
   render(){
     return (
       <header id="header" className="alt">
-        <h1><Link to="index.html">
+        <h1><Link to="">
           <img src={window.imgAssets.logo} alt=""></img>
         </Link></h1>
         <nav id="nav">

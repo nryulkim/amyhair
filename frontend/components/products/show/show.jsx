@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router';
 import ColorObj from '../../color/color'
 import { PRODUCT_NAMES } from '../../../actions/product_actions'
+import { findColor } from '../../../util/util_functions'
 
 class Show extends React.Component{
   constructor(props){
@@ -53,9 +54,12 @@ class Show extends React.Component{
 
   getColors(colors){
     const rslt = [];
+    const colorObjs = this.props.colors;
+    if(!colorObjs){ return null; }
     for (let i = 0; i < colors.length; i++) {
+      const colObj = findColor(colorObjs, colors[i].colorType, colors[i].colorId);
       rslt.push(
-        <ColorObj color={colors[i].name} img={colors[i].image_url} key={i}/>
+        <ColorObj color={colObj.name} img={colObj.image_url} key={i}/>
       )
     }
     return rslt;

@@ -1,9 +1,10 @@
 import { connect } from 'react-redux';
 import Show from './show';
 
-const mapStateToProps = ({ items }, ownProps) => {
+const mapStateToProps = ({ items, colors }, ownProps) => {
   return({
-    item: items.currentItem
+    item: items.currentItem,
+    colors: colors.colors
   });
 };
 

@@ -27,6 +27,14 @@ class CPanel extends React.Component {
     this.setContent = this.setContent.bind(this);
   }
 
+  componentDidMount(){
+    const { items, products, brands } = this.props;
+    if(items && products && brands){
+      this.setState({ loaded: true });
+    }
+  }
+
+
   componentWillReceiveProps(nxtProps){
     const { items, products, brands } = nxtProps;
     if(items && products && brands){
