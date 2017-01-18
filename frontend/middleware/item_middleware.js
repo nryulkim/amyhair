@@ -1,7 +1,7 @@
 import * as ItemAPI from '../util/api/item_api';
 import {
-  GET_ITEM, NEW_ITEM, GET_ITEMS, UPDATE_ITEM,
-  receiveItem, receiveNewItem, receiveItems
+  GET_ITEM, NEW_ITEM, GET_ITEMS, UPDATE_ITEM, DELETE_ITEM,
+  receiveItem, receiveNewItem, receiveItems, removeItem
 } from '../actions/item_actions';
 
 export default ({ getState, dispatch }) => next => action => {
@@ -27,6 +27,13 @@ export default ({ getState, dispatch }) => next => action => {
         dispatch(receiveItem(item));
       }
       ItemAPI.getItem(action.id, success, errors);
+      return next(action);
+
+    case DELETE_ITEM:
+      success = (obj) => {
+        dispatch(removeItem(obj.id));
+      }
+      ItemAPI.destroyItem(action.id, success, errors);
       return next(action);
 
     case UPDATE_ITEM:

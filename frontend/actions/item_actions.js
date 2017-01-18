@@ -5,10 +5,26 @@ export const RECEIVE_NEW_ITEM = "RECEIVE_NEW_ITEM";
 export const RECEIVE_ITEM = "RECEIVE_ITEM";
 export const RECEIVE_ITEMS = "RECEIVE_ITEMS";
 export const NEW_ITEM = "NEW_ITEM";
+export const DELETE_ITEM = "DELETE_ITEM";
+export const REMOVE_ITEM = "REMOVE_ITEM";
 
 export function getItem(id){
   return({
     type: GET_ITEM,
+    id
+  });
+};
+
+export function deleteItem(id){
+  return({
+    type: DELETE_ITEM,
+    id
+  });
+};
+
+export function removeItem(id){
+  return({
+    type: REMOVE_ITEM,
     id
   });
 };

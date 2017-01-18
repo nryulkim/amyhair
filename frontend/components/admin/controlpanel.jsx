@@ -11,6 +11,7 @@ import UpdateItem from './controls/items/update_item_container';
 import DeleteColor from './controls/colors/delete_color_container';
 import DeleteBrand from './controls/brands/delete_brand_container';
 import DeleteProduct from './controls/products/delete_product_container';
+import DeleteItem from './controls/items/delete_item_container';
 
 class CPanel extends React.Component {
   constructor(props){
@@ -63,7 +64,7 @@ class CPanel extends React.Component {
       case "updateitem":
         return (<UpdateItem/>);
       case "removeitem":
-        return (<h1>Fix this</h1>);
+        return (<DeleteItem/>);
       case "addcolor":
         return (<AddColor/>);
       case "updatecolor":
