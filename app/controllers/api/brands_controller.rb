@@ -16,8 +16,13 @@ class Api::BrandsController < ApplicationController
 
   def update
     @brand = Brand.find(params[:id])
+    old_img = nil
+    if @brand.img_file_name
+      old_img = @brand.img
+    end
     if @brand
       if @brand.update(brand_params)
+        old_img.clear if old_img
         render :update
       else
         @errors = @brand.errors.full_messages

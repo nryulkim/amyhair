@@ -25,8 +25,13 @@ class Api::ProductsController < ApplicationController
 
   def update
     @product = Product.find(params[:id])
+    old_img = nil
+    if @product.img_file_name
+      old_img = @product.img
+    end
     if @product
       if @product.update(product_params)
+        old_img.clear if old_img
         render :update
       else
         @errors = @product.errors.full_messages

@@ -45,8 +45,13 @@ class Api::ItemsController < ApplicationController
   def update
     @item = Item.where(id: params[:id]).includes(lengths: [:colors])[0]
     lengths = JSON.parse(length_params['lengths'])
+    old_img = nil
+    if @item.img_file_name
+      old_img = @item.img
+    end
     if @item
       if @item.update(item_params)
+        old_img.clear if old_img
         create_or_update_lengths(@item, lengths)
         @item = Item.where(id: params[:id]).includes(lengths: [:colors])[0]
         render :update

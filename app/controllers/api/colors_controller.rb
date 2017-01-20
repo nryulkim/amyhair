@@ -16,8 +16,13 @@ class Api::ColorsController < ApplicationController
 
   def update
     @color = Color.find(params[:id])
+    old_img = nil
+    if @color.img_file_name
+      old_img = @color.img
+    end
     if @color
       if @color.update(color_params)
+        old_img.clear if old_img
         render :update
       else
         @errors = @color.errors.full_messages
