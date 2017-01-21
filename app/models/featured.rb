@@ -30,4 +30,8 @@ class Featured < ApplicationRecord
   def img
     read_attribute(:img)|| self.brand.img
   end
+
+  def org_img
+    read_attribute(:img)
+  end
 end

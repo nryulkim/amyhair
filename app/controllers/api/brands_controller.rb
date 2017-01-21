@@ -36,7 +36,7 @@ class Api::BrandsController < ApplicationController
   def destroy
     @brand = Brand.find(params[:id])
     @brand.destroy
-    @brand.image.clear if @brand.image
+    @brand.img.clear if @brand.img
     render :destroy
   end
 

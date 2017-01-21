@@ -67,7 +67,7 @@ class Api::ItemsController < ApplicationController
   def destroy
     @item = Item.find(params[:id])
     @item.destroy
-    @item.image.clear if @item.image
+    @item.img.clear if @item.img
 
     render :destroy
   end

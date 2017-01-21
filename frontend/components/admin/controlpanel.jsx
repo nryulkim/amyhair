@@ -13,6 +13,7 @@ import DeleteColor from './controls/colors/delete_color_container';
 import DeleteBrand from './controls/brands/delete_brand_container';
 import DeleteProduct from './controls/products/delete_product_container';
 import DeleteItem from './controls/items/delete_item_container';
+import DeleteFeatured from './controls/featureds/delete_featured_container';
 
 class CPanel extends React.Component {
   constructor(props){
@@ -85,7 +86,7 @@ class CPanel extends React.Component {
       case "updatefeatured":
         return (<h1>hi</h1>);
       case "removefeatured":
-        return (<h1>hi</h1>);
+        return (<DeleteFeatured/>);
     }
     return null;
   }

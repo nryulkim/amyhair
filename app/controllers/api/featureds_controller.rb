@@ -40,7 +40,7 @@ class Api::FeaturedsController < ApplicationController
   def destroy
     @featured = Featured.find(params[:id])
     @featured.destroy
-    @featured.image.clear if @featured.image
+    @featured.img.clear if @featured.org_img
     render :destroy
   end
 

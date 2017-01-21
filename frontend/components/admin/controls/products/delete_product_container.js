@@ -11,7 +11,7 @@ const mapStateToProps = ({ brands, products }, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return({
-    deleteProduct: (brand) => dispatch(deleteProduct(brand))
+    deleteProduct: (id) => dispatch(deleteProduct(id))
   });
 };
 
