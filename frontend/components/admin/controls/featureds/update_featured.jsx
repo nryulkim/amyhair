@@ -148,7 +148,7 @@ class UpdateFeatured extends React.Component {
 
   render(){
     let content = this.featuredChooser();
-    if(this.state.name){
+    if(this.state.id){
       content = this.getForm();
     }
     return(
