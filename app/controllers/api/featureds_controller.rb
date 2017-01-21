@@ -19,7 +19,7 @@ class Api::FeaturedsController < ApplicationController
   end
 
   def update
-    @featured = Featured.where(params[:id]).includes(:brand)[0]
+    @featured = Featured.where(id: params[:id]).includes(:brand)[0]
     old_img = nil
     if @featured.img_file_name
       old_img = @featured.img

@@ -14,7 +14,6 @@ export default (state, action) => {
       return newState;
 
     case RECEIVE_FEATURED:
-      debugger
       index = findObject(newState.featureds, action.featured.id);
       if(index !== -1){
         newState.featureds[index] = action.featured;
