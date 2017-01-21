@@ -20,18 +20,18 @@ class Featured < ApplicationRecord
   belongs_to :brand
 
   def name
-    read_attribute(:name) || self.brand.brand
+    self[:name] || self.brand.brand
   end
 
   def description
-    read_attribute(:description) || self.brand.description
+    self[:description] || self.brand.description
   end
 
   def img
-    read_attribute(:img)|| self.brand.img
+    self[:img]|| self.brand.img
   end
 
   def org_img
-    read_attribute(:img)
+    self[:img]
   end
 end
