@@ -1,4 +1,5 @@
 import React from 'react';
+import FeaturedBrands from '../featured/featured_brands_container'
 import { Link, withRouter } from 'react-router';
 
 class Products extends React.Component{
@@ -44,45 +45,7 @@ class Products extends React.Component{
             </ul>
           </div>
           <div className="content container">
-            <h1>Featured Products</h1>
-            <div className="pictures">
-              <Link className="pic" to='show/1'>
-                <div className="temp img"/>
-                <div className="caption">
-                  <p>Description</p>
-                </div>
-              </Link>
-              <Link className="pic" to='show/2'>
-                <div className="temp img"/>
-                <div className="caption">
-                  <p>Description</p>
-                </div>
-              </Link>
-              <Link className="pic" to='show/3'>
-                <div className="temp img"/>
-                <div className="caption">
-                  <p>Description</p>
-                </div>
-              </Link>
-              <Link className="pic" to='show/4'>
-                <div className="temp img"/>
-                <div className="caption">
-                  <p>Description</p>
-                </div>
-              </Link>
-              <Link className="pic" to='show/5'>
-                <div className="temp img"/>
-                <div className="caption">
-                  <p>Description</p>
-                </div>
-              </Link>
-              <Link className="pic" to='show/6'>
-                <div className="temp img"/>
-                <div className="caption">
-                  <p>Description</p>
-                </div>
-              </Link>
-            </div>
+            <FeaturedBrands/>
           </div>
         </section>
         </article>

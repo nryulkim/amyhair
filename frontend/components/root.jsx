@@ -20,11 +20,11 @@ const Root = ({ store }) => {
     <Provider store={store}>
       <Router history={hashHistory}>
         <Route path="/" component={App}>
-          <IndexRoute component={Main} />
+          <IndexRoute component={Main} onEnter={RootFunctions._main(store)}/>
           <Redirect from="about-us" to="/"/>
           <Redirect from="home" to="/"/>
           <Router path="colorchart" component={ColorChart} onEnter={RootFunctions._getColors(store)}/>
-          <Router path="products" component={BrandIndex} onEnter={RootFunctions._getBrands(store)}/>
+          <Router path="products" component={BrandIndex} onEnter={RootFunctions._main(store)}/>
           <Router path="show/:id" component={Show} onEnter={RootFunctions._getItem(store)}/>
           <Router path="idx/:id" component={MinorIndex} onEnter={RootFunctions._getBrands(store)}/>
           <Router path="prod/:id" component={ProductIndex} onEnter={RootFunctions._getProduct(store)}/>

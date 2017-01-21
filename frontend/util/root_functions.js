@@ -100,6 +100,13 @@ export const _controlPanel = (store) => {
   });
 };
 
+export const _main = (store) => {
+  return (() => {
+    _getBrands(store)();
+    _getFeatureds(store)();
+  });
+};
+
 function resetScreen(){
   window.scrollTo(0,0);
 }
