@@ -1,0 +1,138 @@
+@media screen and (max-width: 1000px) {
+  #header{
+    height: 5em;
+    h1{
+      a{
+        img{
+          height: inherit;
+          padding: 15px 0;
+        }
+      }
+    }
+    ul{
+      height: inherit;
+      li{
+        height: inherit;
+        a.menuToggle{
+          height: inherit;
+          display: flex;
+          align-items: center;
+          span{
+            font-size: 30px;
+          }
+        }
+        a.menuToggle:after{
+          margin-left: 15px;
+          background-size: contain;
+          height: 2.75em;
+          width: 2em;
+        }
+      }
+    }
+  }
+
+  #featured-products{
+    .major{
+      h2{
+        font-size: 40px;
+        padding-bottom: 0px;
+      }
+    }
+    .featured-banners{
+      .spotlight{
+        .image{
+          display: flex;
+          justify-content: center;
+          position: relative;
+          height: 400px;
+          overflow: hidden;
+          img{
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: auto;
+          }
+        }
+        .content{
+          h2{
+            font-size: 36px;
+          }
+          p{
+            font-size: 26px;
+          }
+        }
+      }
+    }
+  }
+
+  #menu {
+    width: 20em;
+    ul > li > a {
+      font-size: 26px;
+      margin: 20px 0px;
+      line-height: 1.6em;
+    }
+  }
+
+  #product-list{
+    .sidebar{
+      margin: 0;
+      width: 100%;
+      h1{
+        font-size: 30px;
+      }
+      ul{
+        font-size: 30px;
+        margin-bottom: 10px;
+        columns: 2;
+        -webkit-columns: 2;
+        -moz-columns: 2;
+        li{
+          margin: 15px 0 !important;
+        }
+      }
+    }
+    .content{
+      margin: 20px 0 !important;
+      h1{
+        font-size: 30px;
+      }
+      .pictures{
+        .pic{
+          .caption{
+            height: 95px;
+            p{
+              font-size: 26px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  #product-content{
+    h4{
+      font-size: 26px;
+      margin-bottom: 20px;
+    }
+    .product-description{
+      p{
+        font-size: 26px;
+        margin-bottom: 20px;
+      }
+    }
+    .product-colors{
+      h5{
+        font-size: 22px;
+      }
+      i{
+        font-size: 22px;
+      }
+      .color{
+        p{
+          font-size: 12px;
+        }
+      }
+    }
+  }
+}
