@@ -77,8 +77,10 @@
     }
 
     .temp img{
-      width: 200px;
-      height: 300px;
+      width: auto;
+      height: 100%;
+      position: absolute;
+      right: -30%
     }
 
     .img{
@@ -87,6 +89,7 @@
       background-color: #a5c5d5;
       left: 0;
       z-index: 1;
+      overflow: hidden;
     }
 
     .caption{
