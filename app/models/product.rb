@@ -21,5 +21,5 @@ class Product < ApplicationRecord
   validates_attachment_content_type :img, content_type: /\Aimage\/.*\z/
 
   belongs_to :brand
-  has_many :items
+  has_many :items, dependent: :destroy
 end

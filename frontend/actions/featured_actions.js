@@ -14,17 +14,17 @@ export function getFeatureds() {
   });
 }
 
-export function newFeatured(brand) {
+export function newFeatured(featured) {
   return ({
     type: NEW_FEATURED,
-    brand
+    featured
   });
 }
 
-export function updateFeatured(brand) {
+export function updateFeatured(featured) {
   return ({
     type: UPDATE_FEATURED,
-    brand
+    featured
   });
 }
 
@@ -35,17 +35,17 @@ export function deleteFeatured(id) {
   });
 }
 
-export function receiveFeatureds(brands) {
+export function receiveFeatureds(featureds) {
   return ({
     type: RECEIVE_FEATUREDS,
-    brands
+    featureds
   });
 }
 
-export function receiveFeatured(brand) {
+export function receiveFeatured(featured) {
   return ({
     type: RECEIVE_FEATURED,
-    brand
+    featured
   });
 }
 

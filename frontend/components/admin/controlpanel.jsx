@@ -4,6 +4,7 @@ import AddColor from './controls/colors/add_color_container';
 import AddBrand from './controls/brands/add_brand_container';
 import AddProduct from './controls/products/add_product_container';
 import AddItem from './controls/items/add_item_container';
+import AddFeatured from './controls/featureds/add_featured_container';
 import UpdateColor from './controls/colors/update_color_container';
 import UpdateBrand from './controls/brands/update_brand_container';
 import UpdateProduct from './controls/products/update_product_container';
@@ -79,6 +80,12 @@ class CPanel extends React.Component {
         return (<UpdateColor/>);
       case "removecolor":
         return (<DeleteColor/>);
+      case "addfeatured":
+        return (<AddFeatured/>);
+      case "updatefeatured":
+        return (<h1>hi</h1>);
+      case "removefeatured":
+        return (<h1>hi</h1>);
     }
     return null;
   }
@@ -107,6 +114,10 @@ class CPanel extends React.Component {
                 <li><a onClick={this.handleChange("addcolor")}>Add Color</a></li>
                 <li><a onClick={this.handleChange("updatecolor")}>Update Color</a></li>
                 <li><a onClick={this.handleChange("removecolor")}>Remove Color</a></li>
+              <h1>Featureds</h1>
+                <li><a onClick={this.handleChange("addfeatured")}>Add Featured</a></li>
+                <li><a onClick={this.handleChange("updatefeatured")}>Update Featured</a></li>
+                <li><a onClick={this.handleChange("removefeatured")}>Remove Featured</a></li>
             </ul>
           </div>
           <div className="control-content">

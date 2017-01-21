@@ -1,25 +1,25 @@
 class Api::FeaturedsController < ApplicationController
   def index
-    @featureds = Featured.all
+    @featureds = Featured.all.includes(:brand)
     render :index
   end
 
   def create
     if Featured.count == 3
       render json: ['Cannot have more than 3 featured'], status: 422
-    end
-
-    @featured = Featured.new(featured_params)
-    if @featured.save
-      render :create
     else
-      @errors = @featured.errors.full_messages
-      render json: @errors, status: 422
+      @featured = Featured.new(featured_params)
+      if @featured.save
+        render :create
+      else
+        @errors = @featured.errors.full_messages
+        render json: @errors, status: 422
+      end
     end
   end
 
   def update
-    @featured = Featured.find(params[:id])
+    @featured = Featured.where(params[:id]).includes(:brand)[0]
     old_img = nil
     if @featured.img_file_name
       old_img = @featured.img
@@ -46,6 +46,6 @@ class Api::FeaturedsController < ApplicationController
 
   private
   def featured_params
-    params.require(:featured).permit(:name, :description, :img)
+    params.require(:featured).permit(:name, :description, :img, :brand_id)
   end
 end

@@ -3,6 +3,7 @@ import { getAllColors } from '../actions/color_actions';
 import { getBrands } from '../actions/brand_actions';
 import { getProduct, getProducts } from '../actions/product_actions';
 import { getItem, getItems } from '../actions/item_actions';
+import { getFeatureds } from '../actions/featured_actions';
 
 export const _redirectIfLoggedIn = (store) => {
   return ((nextState, replace) => {
@@ -73,6 +74,15 @@ export const _getItem = (store) => {
   });
 };
 
+export const _getFeatureds = (store) => {
+  return (() => {
+    if(!store.getState().featureds.featureds){
+      store.dispatch(getFeatureds());
+    }
+    resetScreen();
+  });
+};
+
 export const _clearErrors = (store) => {
   return (() => {
     store.dispatch(clearErrors());
@@ -86,6 +96,7 @@ export const _controlPanel = (store) => {
     _getBrands(store)();
     _getProducts(store)();
     _getItems(store)();
+    _getFeatureds(store)();
   });
 };
 

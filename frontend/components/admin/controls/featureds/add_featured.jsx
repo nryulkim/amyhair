@@ -2,15 +2,19 @@ import React from 'react';
 import { Link, withRouter } from 'react-router';
 import { setDragAndDrop } from '../../../../util/util_functions';
 
-class AddProduct extends React.Component {
+class AddFeatured extends React.Component {
   constructor(props){
     super(props);
+    let bId = 17;
+    if(props.brands[0]){
+      bId = props.brands[0].id;
+    }
     this.state = {
       name: "",
       description: "",
       imgFile: "",
       imgURL: "",
-      brand_id: '',
+      brand_id: bId,
       bundle: false
     };
     this.update = this.update.bind(this);
@@ -62,18 +66,18 @@ class AddProduct extends React.Component {
 
     const { name, description, imgFile, brand_id } = this.state;
     const output = new FormData();
-    output.append("product[name]", name);
-    output.append("product[description]", description);
-    output.append("product[img]", imgFile);
-    output.append("product[brand_id]", brand_id);
-    this.props.newProduct(output);
+    if(name){output.append("featured[name]", name);}
+    if(description){output.append("featured[description]", description);}
+    if(imgFile){output.append("featured[img]", imgFile);}
+    output.append("featured[brand_id]", brand_id);
+    this.props.newFeatured(output);
     this.props.router.push({pathname: "/login"});
     this.setState({
       name: "",
       description: "",
       imgFile: "",
       imgURL: "",
-      brand_id: ""
+      brand_id: this.props.brands[0].id
     });
   }
 
@@ -83,7 +87,7 @@ class AddProduct extends React.Component {
 
     return(
       <div>
-        <h1>Add Product</h1>
+        <h1>Add Featured</h1>
         <form className="add-form" onSubmit={this.handleSubmit}>
           <select value={this.state.brand_id} onChange={this.update('brand_id')}>
             {this.getBrands()}
@@ -92,7 +96,7 @@ class AddProduct extends React.Component {
             type="text"
             value={this.state.name}
             onChange={this.update('name')}
-            placeholder="What is the product name?"/>
+            placeholder="What would you like the title to be?"/>
           <input
             type="text"
             value={this.state.description}
@@ -103,7 +107,7 @@ class AddProduct extends React.Component {
             <div id="dropImg">
               <input type="file" className="drop_file"  id="img" onChange={this.updateImg}></input>
               <label htmlFor="img">
-                <img className="product-img img" src={this.state.imgURL}/>
+                <img className="featured-img img" src={this.state.imgURL}/>
                 <strong>Choose an image</strong> or drag it here.
               </label>
             </div>
@@ -117,4 +121,4 @@ class AddProduct extends React.Component {
   }
 }
 
-export default withRouter(AddProduct);
+export default withRouter(AddFeatured);

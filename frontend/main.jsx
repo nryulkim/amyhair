@@ -2,9 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from './components/root';
-import * as BrandAPI from './util/api/brand_api';
+import * as FeaturedAPI from './util/api/featured_api';
 
-window.BrandAPI = BrandAPI;
+window.FeaturedAPI = FeaturedAPI;
 
 document.addEventListener('DOMContentLoaded', () => {
     let initialState = {};

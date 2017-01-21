@@ -4,7 +4,6 @@ import { Link, withRouter } from 'react-router';
 class Products extends React.Component{
   constructor(props){
     super(props);
-
   }
   componentDidMount(){
     $("#page-wrapper").addClass('products-page');
