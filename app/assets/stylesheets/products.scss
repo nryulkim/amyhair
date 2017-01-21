@@ -38,6 +38,11 @@
     width: 90%;
     #featured-products{
       background: transparent;
+      .major{
+        h2{
+          border-bottom: solid 2px #555;
+        }
+      }
       .spotlight{
         background: transparent;
         .content{
