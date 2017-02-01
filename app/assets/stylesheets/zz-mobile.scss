@@ -75,10 +75,11 @@
   }
 
   #product-list{
-    flex-direction: column !important;
+    flex-direction: column;
+
     .sidebar{
-      margin: 0 !important;
-      width: 100% !important;
+      margin: 0;
+      width: 100%;
       h1{
         font-size: 30px;
       }
@@ -89,7 +90,7 @@
         -webkit-columns: 2;
         -moz-columns: 2;
         li{
-          margin: 15px 0 !important;
+          margin: 15px 0;
           a{
             border-bottom: none;
           }
@@ -97,8 +98,8 @@
       }
     }
     .content{
-      margin: 20px 0 !important;
-      width: 100% !important;
+      margin: 20px 0;
+      width: 100%;
       h1{
         font-size: 30px;
       }
@@ -116,11 +117,22 @@
   }
 
   #product-content{
+    flex-direction: column;
+    justify-content: center;
+
+    .product-image{
+      display: flex;
+      justify-content: center;
+      padding: 10px;
+    }
+
+
     h4{
       font-size: 26px;
       margin-bottom: 20px;
     }
     .product-description{
+      width: 100%;
       p{
         font-size: 26px;
         margin-bottom: 20px;
