@@ -10,7 +10,6 @@ var skel=function(){"use strict";var t={breakpointIds:null,events:{},isInit:!1,o
 
 	skel
 		.breakpoints({
-			xlarge:	'(max-width: 1680px)',
 			large:	'(max-width: 1280px)',
 			medium:	'(max-width: 980px)',
 			small:	'(max-width: 736px)',
