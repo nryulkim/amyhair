@@ -43,7 +43,7 @@ export const _getBrands = (store) => {
 
 export const _getItems = (store) => {
   return (() => {
-    if(!store.getState().brands.brands){
+    if(!store.getState().items.items){
       store.dispatch(getItems());
     }
     resetScreen();
