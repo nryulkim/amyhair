@@ -38,13 +38,13 @@ class Header  extends React.Component{
         </ul>
 
         <div id="icon-list">
-          <a href="" className="icons">
+          <a href="https://www.facebook.com/aviance.hair.1" className="icons">
             <i className="fa fa-facebook-official" aria-hidden="true"></i>
           </a>
           <a href="https://www.instagram.com/aviancehair/" className="icons">
             <i className="fa fa-instagram" aria-hidden="true"></i>
           </a>
-          <a href="" className="icons">
+          <a href="https://www.youtube.com/channel/UCgTYC4aOl2MydAK8stLPCXg" className="icons">
             <i className="fa fa-youtube-play" aria-hidden="true"></i>
           </a>
         </div>
