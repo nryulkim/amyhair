@@ -75,9 +75,10 @@
   }
 
   #product-list{
+    flex-direction: column !important;
     .sidebar{
-      margin: 0;
-      width: 100%;
+      margin: 0 !important;
+      width: 100% !important;
       h1{
         font-size: 30px;
       }
@@ -89,11 +90,15 @@
         -moz-columns: 2;
         li{
           margin: 15px 0 !important;
+          a{
+            border-bottom: none;
+          }
         }
       }
     }
     .content{
       margin: 20px 0 !important;
+      width: 100% !important;
       h1{
         font-size: 30px;
       }

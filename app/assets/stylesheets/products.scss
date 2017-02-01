@@ -119,21 +119,6 @@
   }
 }
 
-//temporary need to fix
-@media screen and (max-width: 1260px) {
-  #product-list{
-    flex-direction: column;
-    .content{
-      width: 100%;
-    }
-
-    .sidebar{
-      width: 100%;
-      margin: 0;
-    }
-  }
-}
-
 .spotlight{
   .image{
     img{
