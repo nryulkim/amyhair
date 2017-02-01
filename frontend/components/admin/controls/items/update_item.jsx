@@ -209,9 +209,11 @@ class UpdateItem extends React.Component {
       }
     }
     return(
-      <ul className='type-chooser'>
-        {rslt}
-      </ul>
+      <div className='chooser'>
+        <ul className='type-chooser'>
+          {rslt}
+        </ul>
+      </div>
     )
   }
 
