@@ -17,7 +17,7 @@
 
 class Product < ApplicationRecord
   validates :name, presence: true
-  has_attached_file :img, default_url: ActionController::Base.helpers.asset_path("backgrounds/back2.jpg", digest: false), url: ":rails_root/app/assets/images/products/:filename"
+  has_attached_file :img, default_url: "/app/assets/images/products/default.jpg", url: "/app/assets/images/products/:filename"
   validates_attachment_content_type :img, content_type: /\Aimage\/.*\z/
 
   belongs_to :brand
