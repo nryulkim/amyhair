@@ -80,7 +80,7 @@
     margin: 10px;
 
     .temp{
-      background-color: #a5c5d5;
+      background-color: #a0a0a0;
       width: 200px;
       height: 300px;
     }
@@ -89,7 +89,9 @@
       width: auto;
       height: 100%;
       position: absolute;
-      right: -30%
+      left: 50%;
+      -webkit-transform: translateX(-50%);
+      transform: translateX(-50%)
     }
 
     .img{
