@@ -36,6 +36,18 @@ class Header  extends React.Component{
           <li><a href="#colorchart">Color Chart</a></li>
           {cpanel}
         </ul>
+
+        <div id="icon-list">
+          <a href="" className="icons">
+            <i className="fa fa-facebook-official" aria-hidden="true"></i>
+          </a>
+          <a href="https://www.instagram.com/aviancehair/" className="icons">
+            <i className="fa fa-instagram" aria-hidden="true"></i>
+          </a>
+          <a href="" className="icons">
+            <i className="fa fa-youtube-play" aria-hidden="true"></i>
+          </a>
+        </div>
       </div>
       );
   }

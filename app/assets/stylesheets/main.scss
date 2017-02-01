@@ -3193,6 +3193,20 @@
 		top: 0;
 		width: 20em;
 		z-index: 10002;
+		display: flex;
+		justify-content: space-between;
+		flex-direction: column;
+		#icon-list{
+			display: flex;
+			justify-content: space-around;
+			.icons{
+				border: none;
+				i{
+					font-size: 36px;
+				}
+			}
+
+		}
 	}
 
 		#menu ul {
