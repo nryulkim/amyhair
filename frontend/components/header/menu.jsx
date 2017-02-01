@@ -38,7 +38,7 @@ class Header  extends React.Component{
         </ul>
 
         <div id="icon-list">
-          <a href="https://www.facebook.com/aviance.hair.1" className="icons">
+          <a href="https://www.facebook.com/Aviance-HAIR-CORP-254478321624361/" className="icons">
             <i className="fa fa-facebook-official" aria-hidden="true"></i>
           </a>
           <a href="https://www.instagram.com/aviancehair/" className="icons">
