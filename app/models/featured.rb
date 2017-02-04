@@ -16,7 +16,7 @@
 
 class Featured < ApplicationRecord
   validates :brand, presence: true
-  has_attached_file :img, url: "/app/assets/images/featured/:filename"
+  has_attached_file :img
 
   belongs_to :brand
 

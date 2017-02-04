@@ -15,7 +15,8 @@
 
 class Brand < ApplicationRecord
   validates :brand, presence: true
-  has_attached_file :img, default_url: "/app/assets/images/brands/default.jpg", url: "/app/assets/images/brands/:filename"
+
+  has_attached_file :img, default_url: "/images/missing.jpg"
   validates_attachment_content_type :img, content_type: /\Aimage\/.*\z/
 
   has_many :products, dependent: :destroy
