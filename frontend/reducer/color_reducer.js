@@ -8,7 +8,15 @@ export default (state, action) => {
   let colorArr;
   switch(action.type){
     case RECEIVE_ALL_COLORS:
-      newState = merge(newState, action.colors)
+      const allColorsNames = [];
+      const types = Object.keys(action.colors.colors);
+      for (let i = 0; i < types.length; i++) {
+        const type = action.colors.colors[types[i]];
+        for (let j = 0; j < type.length; j++){
+          allColorsNames.push(type[j].name);
+        }
+      }
+      newState = merge(newState, action.colors, { colorNames: allColorsNames })
       return newState;
 
     case RECEIVE_COLOR:

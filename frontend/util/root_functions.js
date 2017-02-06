@@ -68,8 +68,8 @@ export const _getProduct = (store) => {
 export const _getItem = (store) => {
   return (() => {
     const id = parseInt(location.hash.split("/")[2]);
-    store.dispatch(getItem(id));
     _getColors(store)();
+    store.dispatch(getItem(id));
     resetScreen();
   });
 };

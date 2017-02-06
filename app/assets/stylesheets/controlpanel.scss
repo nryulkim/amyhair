@@ -104,6 +104,25 @@
               margin-right: 15px;
             }
           }
+
+          .react-autosuggest__container{
+            position: relative;
+            .react-autosuggest__suggestions-container{
+              position: absolute;
+              bottom: 0;
+              border: 1px solid black;
+              background: #fff;
+              transform: translateY(100%);
+              ul{
+                padding: 0;
+                margin: 0;
+                li{
+                  border-top: 1px solid #ccc;
+                }
+              }
+            }
+          }
+
           .delete-length{
             padding: 1px 6px;
             font-size: 15px;
