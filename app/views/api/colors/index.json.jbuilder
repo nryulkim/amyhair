@@ -9,19 +9,29 @@ json.colors do
   json.solid solid_colors.each do |color|
     json.partial! './api/colors/color', color: color
   end
-  json.frost frost_colors.each do |color|
-    json.partial! './api/colors/color', color: color
+  json.set! 'frost mix' do
+    json.array! frost_colors.each do |color|
+      json.partial! './api/colors/color', color: color
+    end
   end
-  json.two two_colors.each do |color|
-    json.partial! './api/colors/color', color: color
+  json.set! 'two tone' do
+    json.array! two_colors.each do |color|
+      json.partial! './api/colors/color', color: color
+    end
   end
-  json.specialf specialf_colors.each do |color|
-    json.partial! './api/colors/color', color: color
+  json.set! 'special f mix' do
+    json.array! specialf_colors.each do |color|
+      json.partial! './api/colors/color', color: color
+    end
   end
-  json.three three_colors.each do |color|
-    json.partial! './api/colors/color', color: color
+  json.set! 'three tone' do
+    json.array! three_colors.each do |color|
+      json.partial! './api/colors/color', color: color
+    end
   end
-  json.silky silky_colors.each do |color|
-    json.partial! './api/colors/color', color: color
+  json.set! 'freya silky' do
+    json.array! silky_colors.each do |color|
+      json.partial! './api/colors/color', color: color
+    end
   end
 end

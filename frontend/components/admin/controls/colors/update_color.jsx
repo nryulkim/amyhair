@@ -107,19 +107,19 @@ class UpdateColor extends React.Component {
               <a onClick={this.handleShow("solid")}>Solid Colors</a>
             </li>
             <li>
-              <a onClick={this.handleShow("frost")}>Frost Mix Colors</a>
+              <a onClick={this.handleShow("frost mix")}>Frost Mix Colors</a>
             </li>
             <li>
-              <a onClick={this.handleShow("two")}>Two Tone Colors</a>
+              <a onClick={this.handleShow("two tone")}>Two Tone Colors</a>
             </li>
             <li>
-              <a onClick={this.handleShow("specialf")}>Special F Mix Colors</a>
+              <a onClick={this.handleShow("special f mix")}>Special F Mix Colors</a>
             </li>
             <li>
-              <a onClick={this.handleShow("three")}>Three Tone Colors</a>
+              <a onClick={this.handleShow("three tone")}>Three Tone Colors</a>
             </li>
             <li>
-              <a onClick={this.handleShow("silky")}>Freya Silky Colors</a>
+              <a onClick={this.handleShow("freya silky")}>Freya Silky Colors</a>
             </li>
           </ul>
         </div>
