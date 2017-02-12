@@ -67,7 +67,7 @@ class ColorChart extends React.Component{
             </div>
             <hr className='light'/>
             <div id="colors2" className='color-container hidden'>
-              {this.getColors("frost")}
+              {this.getColors("frost mix")}
             </div>
 
             <div className="banner" onClick={this.hideColors(3)}>
@@ -76,7 +76,7 @@ class ColorChart extends React.Component{
             </div>
             <hr className='light'/>
             <div id="colors3" className='color-container hidden'>
-              {this.getColors("two")}
+              {this.getColors("two tone")}
             </div>
 
             <div className="banner" onClick={this.hideColors(4)}>
@@ -85,7 +85,7 @@ class ColorChart extends React.Component{
             </div>
             <hr className='light'/>
             <div id="colors4" className='color-container hidden'>
-              {this.getColors("specialf")}
+              {this.getColors("special f mix")}
             </div>
 
             <div className="banner" onClick={this.hideColors(5)}>
@@ -94,7 +94,7 @@ class ColorChart extends React.Component{
             </div>
             <hr className='light'/>
             <div id="colors5" className='color-container hidden'>
-              {this.getColors("three")}
+              {this.getColors("three tone")}
             </div>
 
             <div className="banner" onClick={this.hideColors(6)}>
@@ -103,7 +103,7 @@ class ColorChart extends React.Component{
             </div>
             <hr className='light'/>
             <div id="colors6" className='color-container hidden'>
-              {this.getColors("silky")}
+              {this.getColors("freya silky")}
             </div>
           </section>
         </div>
