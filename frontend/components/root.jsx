@@ -25,7 +25,7 @@ const Root = ({ store }) => {
           <Redirect from="home" to="/"/>
           <Router path="colorchart" component={ColorChart} onEnter={RootFunctions._getColors(store)}/>
           <Router path="products" component={BrandIndex} onEnter={RootFunctions._main(store)}/>
-          <Router path="show/:id" component={Show} onEnter={RootFunctions._getItem(store)}/>
+          <Router path="show/:id" component={Show} onEnter={RootFunctions._getItem(store)} onLeave={RootFunctions._removeCurrentItem(store)}/>
           <Router path="idx/:id" component={MinorIndex} onEnter={RootFunctions._getBrands(store)}/>
           <Router path="prod/:id" component={ProductIndex} onEnter={RootFunctions._getProduct(store)}/>
           <Router path="login" history={hashHistory} component={LogIn} onLeave={RootFunctions._clearErrors(store)} onEnter={RootFunctions._redirectIfLoggedIn(store)}/>

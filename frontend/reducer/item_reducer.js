@@ -1,5 +1,5 @@
 import {
-  RECEIVE_ITEM, RECEIVE_NEW_ITEM, RECEIVE_ITEMS, REMOVE_ITEM
+  RECEIVE_ITEM, RECEIVE_NEW_ITEM, RECEIVE_ITEMS, REMOVE_ITEM, REMOVE_CURRENT_ITEM
 } from '../actions/item_actions';
 import merge from "lodash.merge";
 import { findObject } from '../util/util_functions';
@@ -18,6 +18,10 @@ export default (state, action) => {
       if(index !== -1){
         newState.items.splice(index, 1);
       }
+      return newState;
+
+    case REMOVE_CURRENT_ITEM:
+      newState.currentItem = null;
       return newState;
 
     case RECEIVE_ITEMS:

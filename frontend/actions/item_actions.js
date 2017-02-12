@@ -7,6 +7,7 @@ export const RECEIVE_ITEMS = "RECEIVE_ITEMS";
 export const NEW_ITEM = "NEW_ITEM";
 export const DELETE_ITEM = "DELETE_ITEM";
 export const REMOVE_ITEM = "REMOVE_ITEM";
+export const REMOVE_CURRENT_ITEM = "REMOVE_CURRENT_ITEM";
 
 export function getItem(id){
   return({
@@ -32,6 +33,12 @@ export function removeItem(id){
 export function getItems(){
   return({
     type: GET_ITEMS
+  });
+};
+
+export function removeCurrentItem(){
+  return({
+    type: REMOVE_CURRENT_ITEM
   });
 };
 

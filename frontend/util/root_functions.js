@@ -2,7 +2,7 @@ import { clearErrors } from '../actions/util_actions';
 import { getAllColors } from '../actions/color_actions';
 import { getBrands } from '../actions/brand_actions';
 import { getProduct, getProducts } from '../actions/product_actions';
-import { getItem, getItems } from '../actions/item_actions';
+import { getItem, getItems, removeCurrentItem } from '../actions/item_actions';
 import { getFeatureds } from '../actions/featured_actions';
 
 export const _redirectIfLoggedIn = (store) => {
@@ -73,6 +73,12 @@ export const _getItem = (store) => {
     resetScreen();
   });
 };
+
+export const _removeCurrentItem = (store) => {
+  return(() => {
+    store.dispatch(removeCurrentItem());
+  });
+}
 
 export const _getFeatureds = (store) => {
   return (() => {
