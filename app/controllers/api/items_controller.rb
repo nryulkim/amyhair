@@ -24,8 +24,9 @@ class Api::ItemsController < ApplicationController
 
         if new_length.save
           colors = length['colors'].split(",").map() { |val| val.strip() }
+          color_table = Color.arel_table
           colors.each do |color|
-            found_color = Color.find_by(name: color)
+            found_color = Color.where(color[:name].matches(color))[0]
             if found_color
               ItemColor.create!({ length_id: new_length.id, color_id: found_color.id })
             end
@@ -129,8 +130,9 @@ class Api::ItemsController < ApplicationController
       end
     end
 
+    color_table = Color.arel_table
     color_status.each do |color, status|
-      found_color = Color.find_by(name: color)
+      found_color = Color.where(color_table[:name].matches(color))[0]
       if status == 1
         ItemColor.create({ length_id: length.id, color_id: found_color.id })
       elsif status == -1

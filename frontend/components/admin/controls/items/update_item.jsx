@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router';
+import Autosuggest from 'react-autosuggest';
 import { setDragAndDrop } from '../../../../util/util_functions';
 
 class UpdateItem extends React.Component {
@@ -13,7 +14,8 @@ class UpdateItem extends React.Component {
       description: "",
       imgFile: "",
       imgURL: "",
-      lengths: []
+      lengths: [],
+      suggestions: []
     };
     this.updateImg = this.updateImg.bind(this);
     this.getImg = this.getImg.bind(this);
@@ -29,6 +31,9 @@ class UpdateItem extends React.Component {
     this.addLength = this.addLength.bind(this);
     this.updateLength = this.updateLength.bind(this);
     this.updateColors = this.updateColors.bind(this);
+    this.onSuggestionsFetchRequested = this.onSuggestionsFetchRequested.bind(this);
+    this.onSuggestionsClearRequested = this.onSuggestionsFetchRequested.bind(this);
+    this.getSuggestions = this.getSuggestions.bind(this);
   }
 
   getImg(file){
@@ -88,10 +93,55 @@ class UpdateItem extends React.Component {
     }
   }
 
+  renderSuggestion (suggestion){
+    return(
+      <div id="suggestions">
+        {suggestion}
+      </div>
+    );
+  }
+
+  getSuggestionValue(suggestion){
+    return suggestion.name;
+  }
+
+  getSuggestions(value){
+    const { suggestions } = this.props;
+    const inputValue = value.split(",").pop().trim().toLowerCase();
+    const inputLength = inputValue.length;
+
+    return inputLength === 0 ? [] : suggestions.filter(color =>
+      color.toLowerCase().slice(0, inputLength) === inputValue
+    );
+  };
+
+  onSuggestionsFetchRequested(something) {
+    if(!something){ return }
+    const value = something.value;
+    this.setState({
+      suggestions: this.getSuggestions(value).slice(0, 5)
+    });
+  };
+
+  onSuggestionsClearRequested() {
+    this.setState({
+      suggestions: []
+    });
+  };
+
+
   getLengthForms(){
-    const { lengths } = this.state;
+    const { lengths, suggestions } = this.state;
     const rslt = [];
+
+
     for (let i = 0; i < lengths.length; i++) {
+      const inputProps = {
+        placeholder: 'Add Colors (example: 1, 1b...)',
+        value: lengths[i].colors ? lengths[i].colors : "",
+        onChange: this.updateColors(i)
+      };
+
       rslt.push(
         <div key={i}>
           <input
@@ -100,12 +150,14 @@ class UpdateItem extends React.Component {
             key={'l' + i}
             onChange={this.updateLength(i)}
             placeholder="Add Length (example: 12)"/>
-          <input
-            type="text"
-            value={this.state.lengths[i].colors}
-            key={'c' + i}
-            onChange={this.updateColors(i)}
-            placeholder="Add Colors (example: 1, 1b, 2)"/>
+            <Autosuggest
+              suggestions={suggestions}
+              onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
+              onSuggestionsClearRequested={this.onSuggestionsClearRequested}
+              getSuggestionValue={this.getSuggestionValue}
+              renderSuggestion={this.renderSuggestion}
+              inputProps={inputProps}
+            />
           <a onClick={this.deleteLength(i)} className="delete-length">X</a>
         </div>
       );
