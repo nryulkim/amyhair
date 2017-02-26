@@ -1,4 +1,5 @@
 @media screen and (max-width: 1000px) {
+
   #header{
     height: 5em;
     h1{
@@ -49,8 +50,14 @@
           img{
             position: absolute;
             top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
             width: 100%;
             height: auto;
+            max-width: none;
+            max-height: none;
           }
         }
         .content{
@@ -68,7 +75,7 @@
   #menu {
     width: 20em;
     ul > li > a {
-      font-size: 26px;
+      font-size: 20px;
       margin: 20px 0px;
       line-height: 1.6em;
     }
@@ -84,13 +91,14 @@
         font-size: 30px;
       }
       ul{
-        font-size: 30px;
+        font-size: 22px;
         margin-bottom: 10px;
         columns: 2;
         -webkit-columns: 2;
         -moz-columns: 2;
         li{
-          margin: 15px 0;
+          margin: 0;
+          padding: 5px;
           a{
             border-bottom: none;
           }

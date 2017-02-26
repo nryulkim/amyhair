@@ -17,22 +17,7 @@
 class Featured < ApplicationRecord
   validates :brand, presence: true
   has_attached_file :img
+  validates_attachment_content_type :img, content_type: /\Aimage\/.*\z/
 
   belongs_to :brand
-
-  def name
-    self[:name] || self.brand.brand
-  end
-
-  def description
-    self[:description] || self.brand.description
-  end
-
-  def img
-    self[:img]|| self.brand.img
-  end
-
-  def org_img
-    self[:img]
-  end
 end

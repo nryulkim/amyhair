@@ -8,7 +8,11 @@ class Api::FeaturedsController < ApplicationController
     if Featured.count == 3
       render json: ['Cannot have more than 3 featured'], status: 422
     else
-      @featured = Featured.new(featured_params)
+      brand = Brand.find(featured_params[:brand_id])
+      name = featured_params[:name] || brand[:name]
+      desc = featured_params[:description] || brand[:description]
+      img = featured_params[:img] || brand[:img]
+      @featured = Featured.new({ name: name, description: desc, img: img, brand_id: featured_params[:brand_id] })
       if @featured.save
         render :create
       else
@@ -20,13 +24,8 @@ class Api::FeaturedsController < ApplicationController
 
   def update
     @featured = Featured.where(id: params[:id]).includes(:brand)[0]
-    old_img = nil
-    if @featured.img_file_name
-      old_img = @featured.img
-    end
     if @featured
       if @featured.update(featured_params)
-        old_img.clear if old_img
         render :update
       else
         @errors = @featured.errors.full_messages
@@ -40,7 +39,6 @@ class Api::FeaturedsController < ApplicationController
   def destroy
     @featured = Featured.find(params[:id])
     @featured.destroy
-    @featured.img.clear if @featured.org_img
     render :destroy
   end
 
