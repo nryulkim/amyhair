@@ -18,9 +18,6 @@ class MinorIndex extends React.Component{
   }
 
   setBrand(props){
-    if(!props){
-      props = this.props;
-    }
     if(!props.brands){ return null; }
     const idx = findObject(props.brands, parseInt(props.location.pathname.split("/")[2]));
     const brand = props.brands[idx];
@@ -32,13 +29,17 @@ class MinorIndex extends React.Component{
       products: brand.products,
       loading: false
     });
-    $("#main .products-banner").css({
-  		'background-image': `linear-gradient(top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${brand.image_url})`
-    });
+    return true;
   }
 
   componentWillMount(){
-    this.setBrand();
+    this.setState({
+      name: 'Not Found',
+      description: 'This brand cannot be found.',
+      image_url: '',
+      products: [],
+      loading: true
+    });
   }
 
   componentWillReceiveProps(nextProps){

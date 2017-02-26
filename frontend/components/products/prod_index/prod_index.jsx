@@ -19,9 +19,6 @@ class ProdIndex extends React.Component{
   }
 
   setItems(props){
-    if(!props){
-      props = this.props;
-    }
     const product = props.product;
     if(!product){ return null; }
     this.setState({
@@ -37,7 +34,13 @@ class ProdIndex extends React.Component{
   }
 
   componentWillMount(){
-    this.setItems();
+    this.setState({
+      name: 'Not Found',
+      description: 'This product cannot be found.',
+      image_url: '',
+      products: [],
+      loading: true
+    });
   }
 
   componentWillReceiveProps(nextProps){
