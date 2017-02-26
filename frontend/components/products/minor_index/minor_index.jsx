@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router';
 import { findObject } from '../../../util/util_functions';
+import Modal from '../modal/modal';
 
 class MinorIndex extends React.Component{
   constructor(props){
@@ -9,7 +10,8 @@ class MinorIndex extends React.Component{
       name: 'Not Found',
       description: 'This brand cannot be found.',
       image_url: '',
-      products: []
+      products: [],
+      loading: true
     }
     this.setBrand = this.setBrand.bind(this);
     this.getProducts = this.getProducts.bind(this);
@@ -27,24 +29,16 @@ class MinorIndex extends React.Component{
       name: brand.brand,
       description: brand.description,
       image_url: brand.image_url,
-      products: brand.products
+      products: brand.products,
+      loading: false
     });
     $("#main .products-banner").css({
   		'background-image': `linear-gradient(top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${brand.image_url})`
     });
   }
 
-  componentDidMount(){
+  componentWillMount(){
     this.setBrand();
-  }
-
-  componentWillUnmount(){
-    this.setState({
-      name: 'Not Found',
-      description: 'This brand cannot be found.',
-      image_url: '',
-      products: []
-    });
   }
 
   componentWillReceiveProps(nextProps){
@@ -72,11 +66,14 @@ class MinorIndex extends React.Component{
   }
 
   render(){
-    const { name, description, products } = this.state;
+    const { name, description, products, loading } = this.state;
+    const modal = loading ? <Modal/> : null;
     return (
       <article id="main">
+        {modal}
         <header className="products-banner">
           <h2>{name}</h2>
+          <h4>{description}</h4>
         </header>
         <section id="product-list" className="minoridx">
           <div className="content container">

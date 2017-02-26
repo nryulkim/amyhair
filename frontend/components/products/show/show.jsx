@@ -3,6 +3,8 @@ import { Link } from 'react-router';
 import ColorObj from '../../color/color'
 import { PRODUCT_NAMES } from '../../../actions/product_actions'
 import { findColor } from '../../../util/util_functions'
+import Modal from '../modal/modal';
+
 
 class Show extends React.Component{
   constructor(props){
@@ -11,7 +13,8 @@ class Show extends React.Component{
       name: 'Not Found',
       description: 'This item cannot be found.',
       image_url: window.imgAssets.brand,
-      lengths: []
+      lengths: [],
+      loading: true
     }
     this.setItem = this.setItem.bind(this);
     this.getLengthsColors = this.getLengthsColors.bind(this);
@@ -35,7 +38,8 @@ class Show extends React.Component{
       name: item.name,
       description: item.description,
       image_url: item.image_url,
-      lengths: item.lengths
+      lengths: item.lengths,
+      loading: false
     });
     $("#main .products-banner").css({
   		'background-image': `linear-gradient(top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${item.image_url})`
@@ -110,13 +114,15 @@ class Show extends React.Component{
   }
 
   render(){
-    const { name, description, image_url, lengths } = this.state;
+    const { name, description, image_url, lengths, loading } = this.state;
+    const modal = loading ? <Modal/> : null;
 
     return (
       <article id="main">
         <header className="product-banner">
           <h2>{name}</h2>
         </header>
+        {modal}
         <div id="product-content">
           <div className="product-image">
             <img

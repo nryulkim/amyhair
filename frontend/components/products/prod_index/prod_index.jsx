@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router';
 import { findObject } from '../../../util/util_functions';
+import Modal from '../modal/modal';
+
 
 class ProdIndex extends React.Component{
   constructor(props){
@@ -9,7 +11,8 @@ class ProdIndex extends React.Component{
       name: 'Not Found',
       description: 'This product cannot be found.',
       image_url: '',
-      items: []
+      items: [],
+      loading: true
     }
     this.setItems = this.setItems.bind(this);
     this.getItems = this.getItems.bind(this);
@@ -25,26 +28,16 @@ class ProdIndex extends React.Component{
       name: product.name,
       description: product.description,
       image_url: product.image_url,
-      items: product.items
+      items: product.items,
+      loading: false
     });
     $("#main .products-banner").css({
   		'background-image': `linear-gradient(top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${product.image_url})`
     });
   }
 
-  componentDidMount(){
-    $("#page-wrapper").addClass('products-page');
+  componentWillMount(){
     this.setItems();
-  }
-
-  componentWillUnmount(){
-    $('#page-wrapper').removeClass('products-page');
-    this.setState({
-      name: 'Not Found',
-      description: 'This product cannot be found.',
-      image_url: '',
-      items: []
-    });
   }
 
   componentWillReceiveProps(nextProps){
@@ -72,11 +65,14 @@ class ProdIndex extends React.Component{
   }
 
   render(){
-    const { name, description, items } = this.state;
+    const { name, description, items, loading } = this.state;
+    const modal = loading ? <Modal/> : null;
     return (
       <article id="main">
+        {modal}
         <header className="products-banner">
           <h2>{name}</h2>
+          <h4>{description}</h4>
         </header>
         <section id="product-list" className="minoridx">
           <div className="content container">

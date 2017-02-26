@@ -134,20 +134,17 @@
   }
 }
 
-
-
-
-#main > header.products-banner{
-  background: #f9f9f9;
-  background-image: -moz-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), image-url("backgrounds/back2.jpg");
-  background-image: -webkit-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), image-url("backgrounds/back2.jpg");
-  background-image: -ms-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), image-url("backgrounds/back2.jpg");
-  background-image: linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), image-url("backgrounds/back2.jpg");
-  background-attachment: fixed;
-  background-position: right top;
-  background-repeat: no-repeat;
-  text-align: center;
-}
+// #main > header.products-banner{
+//   background: #f9f9f9;
+//   background-image: -moz-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), image-url("backgrounds/back2.jpg");
+//   background-image: -webkit-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), image-url("backgrounds/back2.jpg");
+//   background-image: -ms-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), image-url("backgrounds/back2.jpg");
+//   background-image: linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), image-url("backgrounds/back2.jpg");
+//   background-attachment: fixed;
+//   background-position: right top;
+//   background-repeat: no-repeat;
+//   text-align: center;
+// }
 
 #product-content{
   display: flex;
