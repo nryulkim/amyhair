@@ -12,24 +12,26 @@ class ProdIndex extends React.Component{
       description: 'This product cannot be found.',
       image_url: '',
       items: [],
-      loading: true
+      loading: true,
+      imagesLoaded: 0,
+      numImages: 0
     }
     this.setItems = this.setItems.bind(this);
     this.getItems = this.getItems.bind(this);
+    this.ensureLoadedImgs = this.ensureLoadedImgs.bind(this);
+    this.checkAllLoaded = this.checkAllLoaded.bind(this);
+    this.setLoadCallback = this.setLoadCallback.bind(this);
   }
 
   setItems(props){
     const product = props.product;
     if(!product){ return null; }
+    const items = this.getItems(product.items);
     this.setState({
       name: product.name,
       description: product.description,
       image_url: product.image_url,
-      items: product.items,
-      loading: false
-    });
-    $("#main .products-banner").css({
-  		'background-image': `linear-gradient(top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${product.image_url})`
+      items: items
     });
   }
 
@@ -44,11 +46,42 @@ class ProdIndex extends React.Component{
   }
 
   componentWillReceiveProps(nextProps){
-    this.setItems(nextProps);
+    const pid = nextProps.product ? nextProps.product.id : 0;
+    const lid = location.hash.split('prod/')[1]
+    if(pid == lid){
+      debugger
+      this.setItems(nextProps);
+      window.setTimeout(this.ensureLoadedImgs, 250);
+    }
   }
 
-  getItems(){
-    const { items } = this.state;
+  ensureLoadedImgs(){
+    const imgs = $('img');
+    const count = imgs.length;
+    this.setState({ numImages: count });
+    this.setLoadCallback(imgs);
+  }
+
+  setLoadCallback(imgs){
+    for (let i = 0; i < imgs.length; i++) {
+      const $img = $(imgs[i]);
+      $img.one('load', this.checkAllLoaded);
+      if(imgs[i].complete){
+        $img.load();
+      }
+    }
+  }
+
+  checkAllLoaded(){
+    const { imagesLoaded, numImages } = this.state;
+    if( numImages === imagesLoaded + 1){
+      this.setState({ imagesLoaded: imagesLoaded + 1, loading: false });
+    }else{
+      this.setState({ imagesLoaded: imagesLoaded + 1 });
+    }
+  }
+
+  getItems(items){
     const rslt = [];
     for (let i = 0; i < items.length; i++) {
       const itm = items[i];
@@ -77,14 +110,14 @@ class ProdIndex extends React.Component{
           <h2>{name}</h2>
           <h4>{description}</h4>
         </header>
-        <section id="product-list" className="minoridx">
-          <div className="content container">
-            <h1>Items</h1>
-            <div className="pictures">
-              {this.getItems()}
+          <section id="product-list" className="minoridx">
+            <div className="content container">
+              <h1>Items</h1>
+              <div className="pictures">
+                {items}
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
         </article>
     );
   }
