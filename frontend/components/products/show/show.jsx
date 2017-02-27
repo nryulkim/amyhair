@@ -14,10 +14,27 @@ class Show extends React.Component{
       description: 'This item cannot be found.',
       image_url: window.imgAssets.brand,
       lengths: [],
-      loading: true
+      loading: true,
+      imagesLoaded: 0,
+      numImages: 0
     }
     this.setItem = this.setItem.bind(this);
     this.getLengthsColors = this.getLengthsColors.bind(this);
+    this.ensureLoadedImgs = this.ensureLoadedImgs.bind(this);
+    this.checkAllLoaded = this.checkAllLoaded.bind(this);
+    this.setLoadCallback = this.setLoadCallback.bind(this);
+  }
+
+  componentWillMount(){
+    this.setState({
+      name: 'Not Found',
+      description: 'This item cannot be found.',
+      image_url: window.imgAssets.brand,
+      lengths: [],
+      loading: true,
+      imagesLoaded: 0,
+      numImages: 0
+    });
   }
 
   componentDidMount(){
@@ -25,7 +42,38 @@ class Show extends React.Component{
   }
 
   componentWillReceiveProps(nextProps){
-    this.setItem(nextProps);
+    const iid = nextProps.item ? nextProps.item.id : -1;
+    const lid = location.hash.split('show/')[1];
+    if(iid == lid){
+      this.setItem(nextProps);
+      window.setTimeout(this.ensureLoadedImgs, 250);
+    }
+  }
+
+  ensureLoadedImgs(){
+    const imgs = $('img');
+    const count = imgs.length;
+    this.setState({ numImages: count });
+    this.setLoadCallback(imgs);
+  }
+
+  setLoadCallback(imgs){
+    for (let i = 0; i < imgs.length; i++) {
+      const $img = $(imgs[i]);
+      $img.one('load', this.checkAllLoaded);
+      if(imgs[i].complete){
+        $img.load();
+      }
+    }
+  }
+
+  checkAllLoaded(){
+    const { imagesLoaded, numImages } = this.state;
+    if( numImages === imagesLoaded + 1){
+      this.setState({ imagesLoaded: imagesLoaded + 1, loading: false });
+    }else{
+      this.setState({ imagesLoaded: imagesLoaded + 1 });
+    }
   }
 
   setItem(props){
@@ -39,12 +87,10 @@ class Show extends React.Component{
       description: item.description,
       image_url: item.image_url,
       lengths: item.lengths,
-      loading: false
-    });
-    $("#main .products-banner").css({
-  		'background-image': `linear-gradient(top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${item.image_url})`
     });
   }
+
+
 
   setZoom(){
     const options = {
