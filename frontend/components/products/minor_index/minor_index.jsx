@@ -11,10 +11,15 @@ class MinorIndex extends React.Component{
       description: 'This brand cannot be found.',
       image_url: '',
       products: [],
-      loading: true
+      loading: true,
+      imagesLoaded: 0,
+      numImages: 0
     }
     this.setBrand = this.setBrand.bind(this);
     this.getProducts = this.getProducts.bind(this);
+    this.ensureLoadedImgs = this.ensureLoadedImgs.bind(this);
+    this.checkAllLoaded = this.checkAllLoaded.bind(this);
+    this.setLoadCallback = this.setLoadCallback.bind(this);
   }
 
   setBrand(props){
@@ -26,8 +31,7 @@ class MinorIndex extends React.Component{
       name: brand.brand,
       description: brand.description,
       image_url: brand.image_url,
-      products: brand.products,
-      loading: false
+      products: brand.products
     });
     return true;
   }
@@ -38,12 +42,45 @@ class MinorIndex extends React.Component{
       description: 'This brand cannot be found.',
       image_url: '',
       products: [],
-      loading: true
+      loading: true,
+      imagesLoaded: 0,
+      numImages: 0
     });
   }
 
   componentWillReceiveProps(nextProps){
-    this.setBrand(nextProps);
+    const bid = nextProps.location.pathname.split('idx/')[1]
+    const lid = location.hash.split('idx/')[1]
+    if(bid == lid){
+      this.setBrand(nextProps);
+      window.setTimeout(this.ensureLoadedImgs, 250);
+    }
+  }
+
+  ensureLoadedImgs(){
+    const imgs = $('img');
+    const count = imgs.length;
+    this.setState({ numImages: count });
+    this.setLoadCallback(imgs);
+  }
+
+  setLoadCallback(imgs){
+    for (let i = 0; i < imgs.length; i++) {
+      const $img = $(imgs[i]);
+      $img.one('load', this.checkAllLoaded);
+      if(imgs[i].complete){
+        $img.load();
+      }
+    }
+  }
+
+  checkAllLoaded(){
+    const { imagesLoaded, numImages } = this.state;
+    if( numImages === imagesLoaded + 1){
+      this.setState({ imagesLoaded: imagesLoaded + 1, loading: false });
+    }else{
+      this.setState({ imagesLoaded: imagesLoaded + 1 });
+    }
   }
 
   getProducts(){

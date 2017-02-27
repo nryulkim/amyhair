@@ -41,7 +41,9 @@ class ProdIndex extends React.Component{
       description: 'This product cannot be found.',
       image_url: '',
       products: [],
-      loading: true
+      loading: true,
+      imagesLoaded: 0,
+      numImages: 0
     });
   }
 
@@ -49,7 +51,6 @@ class ProdIndex extends React.Component{
     const pid = nextProps.product ? nextProps.product.id : 0;
     const lid = location.hash.split('prod/')[1]
     if(pid == lid){
-      debugger
       this.setItems(nextProps);
       window.setTimeout(this.ensureLoadedImgs, 250);
     }
