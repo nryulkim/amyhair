@@ -127,14 +127,16 @@
   #product-content{
     flex-direction: column;
     justify-content: center;
+    height: auto;
 
     .product-image{
       display: flex;
       justify-content: center;
-      height: 100%;
+      height: auto;
       padding: 10px;
       #prod-image{
-        height: 100%;
+        height: auto;
+        width: auto;
       }
     }
 

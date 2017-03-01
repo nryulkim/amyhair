@@ -3,7 +3,6 @@ import { Link } from 'react-router';
 import ColorObj from '../../color/color'
 import { PRODUCT_NAMES } from '../../../actions/product_actions'
 import { findColor } from '../../../util/util_functions'
-import Modal from '../modal/modal';
 
 
 class Show extends React.Component{
@@ -14,15 +13,11 @@ class Show extends React.Component{
       description: 'This item cannot be found.',
       image_url: window.imgAssets.brand,
       lengths: [],
-      loading: true,
       imagesLoaded: 0,
       numImages: 0
     }
     this.setItem = this.setItem.bind(this);
     this.getLengthsColors = this.getLengthsColors.bind(this);
-    this.ensureLoadedImgs = this.ensureLoadedImgs.bind(this);
-    this.checkAllLoaded = this.checkAllLoaded.bind(this);
-    this.setLoadCallback = this.setLoadCallback.bind(this);
   }
 
   componentWillMount(){
@@ -31,7 +26,6 @@ class Show extends React.Component{
       description: 'This item cannot be found.',
       image_url: window.imgAssets.brand,
       lengths: [],
-      loading: true,
       imagesLoaded: 0,
       numImages: 0
     });
@@ -46,33 +40,6 @@ class Show extends React.Component{
     const lid = location.hash.split('show/')[1];
     if(iid == lid){
       this.setItem(nextProps);
-      window.setTimeout(this.ensureLoadedImgs, 250);
-    }
-  }
-
-  ensureLoadedImgs(){
-    const imgs = $('img');
-    const count = imgs.length;
-    this.setState({ numImages: count });
-    this.setLoadCallback(imgs);
-  }
-
-  setLoadCallback(imgs){
-    for (let i = 0; i < imgs.length; i++) {
-      const $img = $(imgs[i]);
-      $img.one('load', this.checkAllLoaded);
-      if(imgs[i].complete){
-        $img.load();
-      }
-    }
-  }
-
-  checkAllLoaded(){
-    const { imagesLoaded, numImages } = this.state;
-    if( numImages === imagesLoaded + 1){
-      this.setState({ imagesLoaded: imagesLoaded + 1, loading: false });
-    }else{
-      this.setState({ imagesLoaded: imagesLoaded + 1 });
     }
   }
 
@@ -161,14 +128,12 @@ class Show extends React.Component{
 
   render(){
     const { name, description, image_url, lengths, loading } = this.state;
-    const modal = loading ? <Modal/> : null;
 
     return (
       <article id="main">
         <header className="product-banner">
           <h2>{name}</h2>
         </header>
-        {modal}
         <div id="product-content">
           <div className="product-image">
             <img
