@@ -85,7 +85,7 @@ class Show extends React.Component{
     this.setState({
       name: item.name,
       description: item.description,
-      image_url: item.image_url,
+      image_url: item.large_url,
       lengths: item.lengths,
     });
   }
