@@ -1,6 +1,7 @@
 json.extract! item, :id, :name, :description, :product_id
 json.image_url asset_path(item.img.url)
 json.thumb_url asset_path(item.img.url(:thumb))
+json.large_url asset_path(item.img.url(:large))
 json.lengths item.lengths.each do |length|
   json.length length.length
   json.colors length.colors.each do |color|
