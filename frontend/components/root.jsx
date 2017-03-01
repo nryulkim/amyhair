@@ -15,7 +15,6 @@ import LogIn from './admin/login_container.js';
 import CPanel from './admin/controlpanel_container.js';
 
 const Root = ({ store }) => {
-  window.store = store;
   return (
     <Provider store={store}>
       <Router history={hashHistory}>
