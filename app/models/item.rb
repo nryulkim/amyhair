@@ -18,6 +18,7 @@ class Item < ApplicationRecord
   validates :name, presence: true
   has_attached_file :img, default_url: "/images/missing.jpg",
     styles: {
+      large: '800',
       thumb: '200x250'
     }
   validates_attachment_content_type :img, content_type: /\Aimage\/.*\z/
