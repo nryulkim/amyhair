@@ -90,7 +90,7 @@ class ProdIndex extends React.Component{
       rslt.push(
         <Link className="pic" to={path} key={i}>
           <div className="temp img">
-            <img src={itm.image_url}></img>
+            <img src={itm.thumb_url}></img>
           </div>
           <div className="caption">
             <p>{itm.name}</p>

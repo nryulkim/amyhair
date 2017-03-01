@@ -92,7 +92,7 @@ class MinorIndex extends React.Component{
       rslt.push(
         <Link className="pic" to={path} key={i}>
           <div className="temp img">
-            <img src={prod.image_url}></img>
+            <img src={prod.thumb_url}></img>
           </div>
           <div className="caption">
             <p>{prod.name}</p>
