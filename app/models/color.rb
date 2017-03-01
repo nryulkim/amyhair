@@ -16,7 +16,10 @@
 class Color < ApplicationRecord
   validates :name, :color_type, presence: true
   validates_uniqueness_of :name, scope: :color_type
-  has_attached_file :img
+  has_attached_file :img,
+    styles: {
+      thumb: '80x80'
+    }
   validates_attachment_content_type :img, content_type: /\Aimage\/.*\z/
 
 end
