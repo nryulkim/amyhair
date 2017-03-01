@@ -16,7 +16,10 @@
 
 class Featured < ApplicationRecord
   validates :brand, presence: true
-  has_attached_file :img
+  has_attached_file :img,
+    styles: {
+      large: '800'
+    }
   validates_attachment_content_type :img, content_type: /\Aimage\/.*\z/
 
   belongs_to :brand

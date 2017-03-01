@@ -33,7 +33,7 @@ class FeaturedBrands extends React.Component {
       const path = this.getPath(featured);
       rslt.push(
         <Link to={path} className="spotlight" key={i}>
-          <div className="image"><img src={featured.image_url} alt="" /></div>
+          <div className="image"><img src={featured.large_url} alt="" /></div>
           <div className="content">
             <h2>{featured.name}</h2>
             <p>{featured.description}</p>
