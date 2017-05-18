@@ -21,9 +21,9 @@ class Products extends React.Component{
     for (let i = 0; i < brands.length; i++) {
       let products = brands[i].products;
       let name = brands[i].brand;
-      let path = 'prod/' + brands[i].products[0].id;
-      if(products.length > 1){
-        path = 'idx/' + brands[i].id;
+      let path = 'idx/' + brands[i].id;
+      if(products.length == 1){
+        path = 'prod/' + brands[i].products[0].id;
       }
       rslt.push(<li key={i}><Link to={path}>{name}</Link></li>);
     }
