@@ -1,6 +1,7 @@
 import React from 'react';
-import FeaturedBrands from '../featured/featured_brands_container'
+import FeaturedBrands from '../featured/featured_brands_container';
 import { Link, withRouter } from 'react-router';
+import { BRAND_ORDER } from '../../util/defaults';
 
 class Products extends React.Component{
   constructor(props){
@@ -18,6 +19,14 @@ class Products extends React.Component{
     const { brands } = this.props;
     if(!brands){ return null; }
 
+    brands.sort((a, b) => {
+      let idx1 = BRAND_ORDER.indexOf(a.brand);
+      let idx2 = BRAND_ORDER.indexOf(b.brand);
+      idx1 = idx1 == -1 ? 9999 : idx1;
+      idx2 = idx2 == -1 ? 9999 : idx2;
+      return idx1 - idx2;
+    });
+
     for (let i = 0; i < brands.length; i++) {
       let products = brands[i].products;
       let name = brands[i].brand;
@@ -27,6 +36,7 @@ class Products extends React.Component{
       }
       rslt.push(<li key={i}><Link to={path}>{name}</Link></li>);
     }
+
     return rslt;
   }
 
